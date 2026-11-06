@@ -47,12 +47,20 @@ def role_family(title):
     return None
 
 
+LA_AREA = (
+    r"Los Angeles|\bLA\b|Santa Monica|Culver City|Burbank|Glendale|Pasadena|"
+    r"Hawthorne|El Segundo|Playa Vista|Long Beach|Irvine|Costa Mesa|Torrance|"
+    r"Venice|Marina del Rey|Hollywood|Beverly Hills|Century City|"
+    r"Manhattan Beach|Van Nuys|Woodland Hills|Sherman Oaks|Thousand Oaks|"
+    r"Calabasas|Newport Beach|Anaheim|Orange County|Inglewood|Carson|"
+    r"Downey|Santa Clarita|Westlake Village|Redondo Beach|Encino"
+)
+LA_PATTERN = re.compile(LA_AREA, re.I)
 CA_PATTERN = re.compile(
-    r"\b(CA|California)\b|San Francisco|Los Angeles|San Jose|San Diego|"
-    r"Palo Alto|Mountain View|Sunnyvale|Cupertino|Santa Clara|Burbank|"
-    r"Glendale|Irvine|Oakland|Berkeley|Fremont|Menlo Park|Redwood City|"
-    r"Santa Monica|Culver City|Sacramento|Pasadena|San Mateo|Hawthorne|"
-    r"Anaheim|Emeryville|San Luis Obispo|Bay Area",
+    r"\b(CA|California)\b|San Francisco|San Jose|San Diego|"
+    r"Palo Alto|Mountain View|Sunnyvale|Cupertino|Santa Clara|"
+    r"Oakland|Berkeley|Fremont|Menlo Park|Redwood City|Sacramento|"
+    r"San Mateo|Emeryville|San Luis Obispo|Bay Area|" + LA_AREA,
     re.I,
 )
 
@@ -93,7 +101,9 @@ def score_job(job):
     if matches_any(text, p["degree"]):
         score += 10
     if job["target_company"]:
-        score += 17
+        score += 10
+    if job["la_area"]:
+        score += CONFIG["la_area_boost"]
 
     return max(0, min(100, score)), matched
 
@@ -117,6 +127,9 @@ def fetch_adzuna():
         "content-type": "application/json",
     }
     searches = [{"what_phrase": q} for q in CONFIG["adzuna_queries"]]
+    # The same searches again, focused on the LA area
+    searches += [{"what_phrase": q, "where": "Los Angeles", "distance": 60}
+                 for q in CONFIG["adzuna_queries"]]
     # Extra searches aimed at each target company
     for company in CONFIG["target_company_searches"]:
         searches.append({"what_and": company,
@@ -132,6 +145,9 @@ def fetch_adzuna():
                 results = r.json().get("results", [])
             except Exception as e:
                 print(f"Adzuna error for {s}: {e}")
+                if "401" in str(e) or "403" in str(e):
+                    print("Adzuna rejected the keys. Check the two secrets.")
+                    return jobs
                 break
             for j in results:
                 jobs.append({
@@ -230,8 +246,11 @@ FETCHERS = {"ashby": fetch_ashby, "greenhouse": fetch_greenhouse, "lever": fetch
 
 def main():
     raw = fetch_adzuna()
+    print(f"Adzuna: {len(raw)} postings")
     for feed in CONFIG["company_feeds"]:
-        raw += FETCHERS[feed["platform"]](feed["board"], feed["company"])
+        got = FETCHERS[feed["platform"]](feed["board"], feed["company"])
+        print(f"{feed['company']}: {len(got)} postings")
+        raw += got
     print(f"Fetched {len(raw)} raw postings")
 
     # Keep the jobs from earlier runs so "first seen" dates survive
@@ -254,6 +273,7 @@ def main():
         seen_keys.add(key)
 
         job["role"] = family
+        job["la_area"] = bool(LA_PATTERN.search(job["location"]))
         job["target_company"] = is_target_company(job["company"])
         job["score"], job["matched_skills"] = score_job(job)
         job["first_seen"] = old.get(job["id"], {}).get("first_seen", today)
@@ -270,7 +290,8 @@ def main():
     OUT_FILE.parent.mkdir(exist_ok=True)
     OUT_FILE.write_text(json.dumps({"updated": NOW.isoformat(), "jobs": jobs}, indent=1))
     new_today = sum(j["first_seen"] == today for j in jobs)
-    print(f"Saved {len(jobs)} jobs ({new_today} new today)")
+    companies = len({j["company"] for j in jobs})
+    print(f"Saved {len(jobs)} jobs from {companies} companies ({new_today} new today)")
 
 
 if __name__ == "__main__":

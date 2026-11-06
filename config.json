@@ -2,30 +2,53 @@
   "max_days_old": 3,
   "keep_days": 30,
   "include_remote_us": true,
-
   "roles": {
     "Data analyst": ["data analyst", "analytics analyst", "reporting analyst", "insights analyst", "product analyst", "business intelligence", "\\bBI\\b analyst", "analytics engineer"],
     "Business analyst": ["business analyst", "business systems analyst", "operations analyst", "strategy analyst", "marketing analyst"],
     "Data scientist": ["data scien", "machine learning analyst", "statistician", "quantitative analyst", "decision scien"],
     "Project manager": ["project manager", "program manager", "project coordinator", "program coordinator"]
   },
-
   "exclude_titles": ["\\bdirector\\b", "\\bvp\\b", "vice president", "head of", "\\bprincipal\\b"],
-
   "adzuna_queries": ["data analyst", "business analyst", "data scientist", "project manager", "analytics", "product analyst"],
-
   "target_companies": ["apple", "disney", "google", "openai", "tesla"],
   "target_company_searches": ["Apple", "Disney", "Google", "OpenAI", "Tesla"],
-
   "company_feeds": [
+    {"platform": "greenhouse", "board": "spacex", "company": "SpaceX"},
+    {"platform": "greenhouse", "board": "riotgames", "company": "Riot Games"},
+    {"platform": "greenhouse", "board": "andurilindustries", "company": "Anduril"},
+    {"platform": "greenhouse", "board": "goodrx", "company": "GoodRx"},
+    {"platform": "greenhouse", "board": "servicetitan", "company": "ServiceTitan"},
+    {"platform": "greenhouse", "board": "scopely", "company": "Scopely"},
+    {"platform": "greenhouse", "board": "sweetgreen", "company": "Sweetgreen"},
+    {"platform": "greenhouse", "board": "fabfitfun", "company": "FabFitFun"},
+    {"platform": "ashby", "board": "whatnot", "company": "Whatnot"},
+    {"platform": "greenhouse", "board": "airbnb", "company": "Airbnb"},
+    {"platform": "greenhouse", "board": "stripe", "company": "Stripe"},
+    {"platform": "greenhouse", "board": "pinterest", "company": "Pinterest"},
+    {"platform": "greenhouse", "board": "reddit", "company": "Reddit"},
+    {"platform": "greenhouse", "board": "discord", "company": "Discord"},
+    {"platform": "greenhouse", "board": "figma", "company": "Figma"},
+    {"platform": "greenhouse", "board": "databricks", "company": "Databricks"},
+    {"platform": "greenhouse", "board": "robinhood", "company": "Robinhood"},
+    {"platform": "greenhouse", "board": "lyft", "company": "Lyft"},
+    {"platform": "greenhouse", "board": "instacart", "company": "Instacart"},
+    {"platform": "greenhouse", "board": "coinbase", "company": "Coinbase"},
+    {"platform": "greenhouse", "board": "dropbox", "company": "Dropbox"},
+    {"platform": "greenhouse", "board": "anthropic", "company": "Anthropic"},
+    {"platform": "lever", "board": "palantir", "company": "Palantir"},
+    {"platform": "lever", "board": "plaid", "company": "Plaid"},
+    {"platform": "ashby", "board": "notion", "company": "Notion"},
+    {"platform": "ashby", "board": "ramp", "company": "Ramp"},
     {"platform": "ashby", "board": "openai", "company": "OpenAI"}
   ],
-
   "profile": {
     "skills": {
       "Python": ["\\bpython\\b"],
       "SQL": ["\\bsql\\b"],
-      "R": ["\\bR\\b(?![&/])", "\\bRStudio\\b"],
+      "R": [
+        "\\bR\\b(?![&/])",
+        "\\bRStudio\\b"
+      ],
       "SAS": ["\\bSAS\\b"],
       "Excel": ["\\bexcel\\b", "spreadsheet"],
       "Salesforce": ["salesforce"],
@@ -36,8 +59,23 @@
       "Survey analysis": ["survey"],
       "Stakeholder communication": ["stakeholder", "communicat", "present"]
     },
-    "early_career": ["new grad", "entry[- ]level", "early career", "university grad", "\\bintern", "associate", "junior", "0-2 years", "1-2 years", "0\\+ years", "1\\+ years", "recent graduate", "rotational"],
+    "early_career": [
+      "new grad",
+      "entry[- ]level",
+      "early career",
+      "university grad",
+      "\\bintern",
+      "associate",
+      "junior",
+      "0-2 years",
+      "1-2 years",
+      "0\\+ years",
+      "1\\+ years",
+      "recent graduate",
+      "rotational"
+    ],
     "too_senior": ["\\bsenior\\b", "\\bsr\\.?\\b", "\\bstaff\\b", "\\blead\\b", "\\bmanager ii\\b", "\\biii\\b", "\\biv\\b"],
     "degree": ["statistic", "business analytics", "master'?s"]
-  }
+  },
+  "la_area_boost": 12
 }
