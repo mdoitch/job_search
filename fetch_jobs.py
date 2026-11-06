@@ -358,20 +358,36 @@ FETCHERS = {"ashby": fetch_ashby, "greenhouse": fetch_greenhouse, "lever": fetch
 def main():
     raw = fetch_adzuna()
     print(f"Adzuna: {len(raw)} postings")
+    failed_feeds = set()   # id prefixes of feeds that returned nothing today
+    prefix = {"greenhouse": "gh", "ashby": "ashby", "lever": "lever"}
     for feed in CONFIG["company_feeds"]:
         got = FETCHERS[feed["platform"]](feed["board"], feed["company"])
         print(f"{feed['company']}: {len(got)} postings")
+        if not got:
+            failed_feeds.add(f"{prefix[feed['platform']]}-{feed['board']}-")
         raw += got
     print(f"Fetched {len(raw)} raw postings")
 
-    # Keep the jobs from earlier runs so "first seen" dates survive
+    # Jobs from earlier runs: used for "first seen" dates, and some are carried
+    # over. Adzuna jobs are carried over for a while because each search only
+    # looks at the last few days; company-site jobs are carried over only if
+    # that company's feed failed today (otherwise a missing job means it closed).
     old = {}
     if OUT_FILE.exists():
         old = {j["id"]: j for j in json.loads(OUT_FILE.read_text()).get("jobs", [])}
-
+    cutoff = (NOW - timedelta(days=CONFIG["keep_days"])).date().isoformat()
     today = NOW.date().isoformat()
+    fresh_ids = {j["id"] for j in raw}
+    carried = [
+        j for jid, j in old.items()
+        if jid not in fresh_ids
+        and j.get("first_seen", today) >= cutoff
+        and (jid.startswith("adzuna-") or any(jid.startswith(f) for f in failed_feeds))
+    ]
+
+    # Every job, new or carried over, goes through today's filters and scoring
     kept, seen_keys = {}, set()
-    for job in raw:
+    for job in raw + carried:
         family = role_family(job["title"])
         if not family or not location_ok(job["location"], job["remote"]):
             continue
@@ -405,12 +421,6 @@ def main():
         job["first_seen"] = old.get(job["id"], {}).get("first_seen", today)
         job["description"] = job["description"][:600]
         kept[job["id"]] = job
-
-    # Keep older postings for a while even if a source stops returning them
-    cutoff = (NOW - timedelta(days=CONFIG["keep_days"])).date().isoformat()
-    for jid, job in old.items():
-        if jid not in kept and job.get("first_seen", today) >= cutoff:
-            kept[jid] = job
 
     jobs = sorted(kept.values(), key=lambda j: (-j["score"], j["first_seen"]))
     OUT_FILE.parent.mkdir(exist_ok=True)
