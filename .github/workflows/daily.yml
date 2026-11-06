@@ -2,19 +2,26 @@ name: Fetch jobs daily
 
 on:
   schedule:
-    - cron: "0 14 * * *"   # 14:00 UTC = 7am Pacific (6am in winter)
+    # GitHub often skips runs set for the top of the hour, so these use odd
+    # minutes. The second run is a backup in case the first one is skipped.
+    - cron: "37 13 * * *"   # 5:37am Pacific in winter (6:37am in summer)
+    - cron: "23 16 * * *"   # 8:23am Pacific in winter (9:23am in summer)
   workflow_dispatch:         # lets you run it by hand from the Actions tab
 
 permissions:
   contents: write
 
+concurrency:
+  group: fetch-jobs   # never run two at once
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -31,4 +38,5 @@ jobs:
           git config user.email "job-bot@users.noreply.github.com"
           git add docs/jobs.json
           git diff --staged --quiet || git commit -m "Daily jobs update"
+          git pull --rebase --autostash
           git push
