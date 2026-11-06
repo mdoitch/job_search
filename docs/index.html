@@ -120,6 +120,12 @@
       <option>Data scientist</option>
       <option>Project manager</option>
     </select>
+    <select id="expmax" aria-label="Most experience asked">
+      <option value="0" selected>No experience required</option>
+      <option value="1">Up to 1 year</option>
+      <option value="2">Up to 2 years</option>
+      <option value="99">Any amount</option>
+    </select>
     <select id="sort" aria-label="Sort by">
       <option value="score">Best fit first</option>
       <option value="new">Newest first</option>
@@ -129,7 +135,7 @@
     <label class="check"><input type="checkbox" id="masters"> Values a master’s</label>
     <label class="check"><input type="checkbox" id="unlisted"> Include jobs that don’t list experience</label>
     <label class="check"><input type="checkbox" id="fresh"> New today</label>
-    <label class="check"><input type="checkbox" id="hideSenior" checked> Fits my level (0–1 years with a master’s)</label>
+    <label class="check"><input type="checkbox" id="hideSenior" checked> Hide senior, manager and PhD roles</label>
   </div>
 
   <p class="count" id="count" aria-live="polite"></p>
@@ -164,7 +170,9 @@ function render() {
     (!$("la").checked || j.la_area) &&
     (!$("masters").checked || j.masters_valued) &&
     (!$("fresh").checked || j.first_seen === today) &&
-    (!$("hideSenior").checked || (j.fits_experience && (j.experience_listed || $("unlisted").checked))) &&
+    (!$("hideSenior").checked || (!j.senior_title && !j.manages_people && !j.senior_language && !j.phd_required)) &&
+    (j.effective_years != null ? j.effective_years <= +$("expmax").value
+                               : ($("unlisted").checked || $("expmax").value === "99")) &&
     (!q || `${j.title} ${j.company} ${j.location} ${(j.matched_skills || []).join(" ")}`.toLowerCase().includes(q))
   );
   list.sort($("sort").value === "new"
@@ -183,7 +191,7 @@ function render() {
       j.target_company ? `<span class="tag target">On your list</span>` : "",
       `<span class="tag">${esc(j.role)}</span>`,
       j.masters_valued ? `<span class="tag target">Values a master’s</span>` : "",
-      j.new_grad_program ? `<span class="tag">New-grad program</span>` : "",
+      j.new_grad_program ? `<span class="tag target">New-grad program${j.starts_2027 ? ", 2027 start" : ""}</span>` : "",
       j.years_required != null
         ? `<span class="tag">${j.years_required}+ yrs experience${j.effective_years != null && j.effective_years < j.years_required ? `, ${j.effective_years} with a master’s` : ""}</span>`
         : `<span class="tag">Experience not listed</span>`,
@@ -229,7 +237,7 @@ fetch("jobs.json", { cache: "no-store" })
     $("jobs").innerHTML = `<li class="empty"><strong>jobs.json wasn’t found.</strong>Run the “Fetch jobs daily” workflow from the Actions tab on GitHub, then reload this page.</li>`;
   });
 
-["q", "role", "sort", "la", "targets", "masters", "unlisted", "fresh", "hideSenior"].forEach(id =>
+["q", "role", "expmax", "sort", "la", "targets", "masters", "unlisted", "fresh", "hideSenior"].forEach(id =>
   $(id).addEventListener(id === "q" ? "input" : "change", render));
 </script>
 </body>
