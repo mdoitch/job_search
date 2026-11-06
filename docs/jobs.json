@@ -1,0 +1,1306 @@
+{
+ "updated": "2026-11-06T06:00:06.178061+00:00",
+ "jobs": [
+  {
+   "id": "ashby-openai-3ac187b2-dd75-4acd-b285-51ae6e603dbd",
+   "title": "Data Scientist, Real Estate & Workplace ",
+   "company": "OpenAI",
+   "location": "San Francisco / Mountain View",
+   "description": "About the Role We\u2019re hiring a Data Scientist to support Real Estate & Workplace (REW), a fast-moving global team focused on creating workplaces that help OpenAI\u2019s people do their best work while scaling the company\u2019s real estate and workplace operations. Our work is grounded in understanding how people use space and services, collaborate across physical and digital environments, and experience the workplace. REW\u2019s scope spans portfolio strategy, design and construction, space planning, sustainability, workplace experience, and global operations. You\u2019ll work comfortably across this broad, somet",
+   "url": "https://jobs.ashbyhq.com/openai/3ac187b2-dd75-4acd-b285-51ae6e603dbd",
+   "posted": "2026-08-20T16:38:56.595+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 92,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-efcc3430-14c8-4022-8350-8146ffb867ab",
+   "title": "Data Scientist, Preparedness",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The Preparedness team is an important part of the Safety Systems https://openai.com/safety/safety-systems org at OpenAI, and is guided by OpenAI\u2019s Preparedness Framework https://openai.com/index/updating-our-preparedness-framework/. Frontier AI models have the potential to benefit all of humanity, but also pose increasingly severe risks. To ensure that AI promotes positive change, the Preparedness team helps us prepare for the development of increasingly capable frontier AI models. This team is tasked with identifying, tracking, and preparing for catastrophic risks related to fr",
+   "url": "https://jobs.ashbyhq.com/openai/efcc3430-14c8-4022-8350-8146ffb867ab",
+   "posted": "2026-02-26T16:34:52.661+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 82,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-93f558c1-c944-4ddc-b102-addc9446de3d",
+   "title": "Applied Data Science & Insights Leader - GTM Intelligence Solutions and Technical Success",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The GTM Data Science team partners with Go-to-Market, Technical Success, Product, Engineering, RevOps, and Strategic Finance to build the shared intelligence layer for OpenAI's B2B business. The team turns product usage, customer behavior, revenue, field activity, and customer feedback into rigorous insight products that help leaders and field teams understand where customers are succeeding, where adoption is blocked, and what actions will accelerate durable growth. We are building systems that make customer intelligence proactive: surfacing risk, expansion potential, product ga",
+   "url": "https://jobs.ashbyhq.com/openai/93f558c1-c944-4ddc-b102-addc9446de3d",
+   "posted": "2026-06-11T15:28:51.071+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 80,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Salesforce",
+    "Dashboards",
+    "Statistics",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-1f148786-2e00-472a-96b9-0b29015980e1",
+   "title": "Product Data Scientist - Youth, Families and Learning",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the role We\u2019re looking for a product data scientist to help OpenAI create more value and drive sustainable growth for young people, families, and learners. You\u2019ll drive product data science across under-18 audiences, emerging opportunities for children under 13, family experiences, and learning and education more broadly. You\u2019ll help decide where we should invest, what we should build, and how we\u2019ll know it is working. This means understanding distinct audience needs, identifying promising use cases, and turning evidence into a clear product strategy. Your work will connect discovery and",
+   "url": "https://jobs.ashbyhq.com/openai/1f148786-2e00-472a-96b9-0b29015980e1",
+   "posted": "2026-10-20T21:21:22.316+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 75,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards",
+    "Statistics",
+    "Survey analysis",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-7f299784-2c75-4d73-99e5-1e5043ec7b48",
+   "title": "Data Scientist, B2B Demand Generation, Growth & Measurement",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "Job Description: Data Scientist, B2B Demand Generation, Growth & Measurement About the Role We are hiring a Data Scientist to lead measurement, experimentation, and decision science for B2B marketing demand generation. You will help us understand which marketing investments create incremental demand, qualified pipeline, and revenue and how to scale them efficiently. Our mandate is to build a rigorous, full-funnel view of how B2B marketing creates demand and moves prospects from awareness and engagement to qualified opportunities, closed-won revenue, and expansion. You will shape how we measure",
+   "url": "https://jobs.ashbyhq.com/openai/7f299784-2c75-4d73-99e5-1e5043ec7b48",
+   "posted": "2026-08-06T19:25:21.737+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 72,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Statistics",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-90c711dc-5f50-46e3-a5ab-82359a56d683",
+   "title": "Data Scientist, Safety",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM OpenAI\u2019s Safety teams work to ensure our products are safe, trusted, and resilient as frontier AI systems scale globally. We tackle some of the company\u2019s most important challenges across understanding and preventing misuse and misalignment, intercepting fraud and abuse, and protecting vulnerable users. We are hiring Data Scientists to help build the analytical foundations that allow OpenAI to deploy increasingly capable AI responsibly. We are hiring Data Scientists across several teams that contribute to safety in different ways, including: - Safety Systems - Integrity - Product",
+   "url": "https://jobs.ashbyhq.com/openai/90c711dc-5f50-46e3-a5ab-82359a56d683",
+   "posted": "2026-05-15T23:36:37.483+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 67,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-71004494-9a55-4ed5-b458-2ff475f0d881",
+   "title": "Research Program Manager, Data Acquisition",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI's Research Data Team exists to accelerate the evaluation, safety and capabilities of our models and products. Made up of technical operators and software engineers, we design the methods in which we acquire and create data. About the Role As a Research Program Manager (RPM), Data Acquisition, you will partner with research, engineering, and operations to design and implement pragmatic solutions for acquiring data. You will be a key interface between our research roadmap and external data offerings. This role is based in our San Francisco HQ and will be part of a team of R",
+   "url": "https://jobs.ashbyhq.com/openai/71004494-9a55-4ed5-b458-2ff475f0d881",
+   "posted": "2026-06-05T19:09:39.017+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 66,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-756d8c20-649a-47f2-8012-553b5f6cb0c5",
+   "title": "Data Scientist, B2B Strategy & Intelligence",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Role We are hiring a Data Scientist to help build OpenAI's B2B ecosystem and go-to-market data science capability. You will turn ambiguous commercial questions into evidence, recommendations, and operating decisions that help OpenAI understand where to focus as our B2B business expands. OpenAI's B2B motion is growing quickly across products, customer segments, markets, and field teams. This role will partner with leaders across GTM, Revenue, Product, Finance, RevOps, Strategy, and Data Science to answer questions tied to international strategy, monetization, product penetration, fiel",
+   "url": "https://jobs.ashbyhq.com/openai/756d8c20-649a-47f2-8012-553b5f6cb0c5",
+   "posted": "2026-09-30T03:10:05.214+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 66,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-0ca02747-5c97-432b-95c5-4b9099bce992",
+   "title": "Machine Learning Data Scientist - Consumer Forecasting",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The Strategic Finance team at OpenAI plays a critical role in shaping the company\u2019s long-term trajectory. We partner closely with Product, Engineering, and Go-To-Market teams to inform high-stakes decisions through rigorous data science and economic modeling. As part of our expanding Data Science function, we\u2019re building a best-in-class Forecasting capability to drive real-time, data-driven decision-making across user growth, revenue, compute infrastructure, and more. We are developing scalable forecasting infrastructure to help us understand and anticipate business dynamics in ",
+   "url": "https://jobs.ashbyhq.com/openai/0ca02747-5c97-432b-95c5-4b9099bce992",
+   "posted": "2026-10-22T01:05:58.052+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 64,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-e90a44a7-fc2e-49bf-aec4-d43b9e3d8e92",
+   "title": "Data Scientist, Core Experimentation ",
+   "company": "OpenAI",
+   "location": "Seattle",
+   "description": "About the Team The Statsig team at OpenAI https://openai.com?utm_source=chatgpt.com builds and operates the experimentation platform that powers product development, measurement, and decision-making across the company. We partner closely with product, engineering, and infrastructure teams to ensure experiments are trustworthy, statistically rigorous, and scalable to the needs of frontier AI products. Our mission is to help teams make better decisions through reliable experimentation. We care deeply about statistical correctness, pragmatic solutions, and building systems that researchers and en",
+   "url": "https://jobs.ashbyhq.com/openai/e90a44a7-fc2e-49bf-aec4-d43b9e3d8e92",
+   "posted": "2026-05-13T17:46:00.803+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 59,
+   "matched_skills": [
+    "Python",
+    "Statistics",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-2bdd1b8b-2883-40fb-b006-583959ad4c5f",
+   "title": "Data Program Manager, Science",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s Research Data team exists to accelerate the evaluation, safety and capabilities of our models and products. Made up of technical operators and software engineers, we design the methods through which we acquire and create data. About the Role As a Data Program Manager, Science, you will help researchers develop and execute scientific data programs, connecting OpenAI\u2019s research priorities with relevant data, expertise and external partners. You\u2019ll work closely with researchers to understand their needs, assess the scientific and practical value of opportunities, and devel",
+   "url": "https://jobs.ashbyhq.com/openai/2bdd1b8b-2883-40fb-b006-583959ad4c5f",
+   "posted": "2026-10-13T19:27:04.932+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 58,
+   "matched_skills": [
+    "Python",
+    "SQL"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-5ceff3dd-3503-4ea0-9ade-eeb36b29f14e",
+   "title": "Data Scientist, Analytics Enablement",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Strategic Finance Data Science team helps OpenAI understand business performance and make informed decisions about growth, revenue, and resource allocation. We partner with Strategic Finance, Data Engineering, and business teams to build trusted metrics, explain what is changing, and support forecasting, planning, pricing, and investment decisions. ABOUT THE ROLE We\u2019re looking for a Data Scientist, Analytics Enablement to turn complex financial and business questions into reliable data products, clear analyses, and actionable recommendations. You will work across the analyti",
+   "url": "https://jobs.ashbyhq.com/openai/5ceff3dd-3503-4ea0-9ade-eeb36b29f14e",
+   "posted": "2026-11-04T02:20:48.500+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 57,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-1eb32675-b1a0-4c0a-9b57-19ceab07e9e0",
+   "title": "Data Scientist, Ads Demand",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Role OpenAI's ads business is scaling quickly. As the Data Scientist for Ads Demand, you will build the measurement and insight foundation for understanding demand health and advertiser value across the marketplace. You will partner closely with Ads Sales leadership and Ads Product leadership\u2014along with Marketing Science and product and sales teams\u2014to diagnose advertiser performance, define benchmarks, identify growth opportunities, and turn advertiser feedback into product priorities. Your work will shape demand strategy, improve advertiser outcomes, and help OpenAI build for its mo",
+   "url": "https://jobs.ashbyhq.com/openai/1eb32675-b1a0-4c0a-9b57-19ceab07e9e0",
+   "posted": "2026-07-30T18:22:51.171+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 55,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "R",
+    "Statistics",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-082f4d82-499f-4150-892f-0b0d1105fffe",
+   "title": "Data Scientist, FinEng",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s Financial Engineering (FinEng) team powers how revenue flows through our products\u2014pricing & packaging, checkout, payments, subscriptions, and the financial infrastructure behind them. We operate at the intersection of Product, Engineering, Risk, Finance, and Go-to-Market to ensure that paying for OpenAI products is seamless, reliable, scalable, and globally optimized. As OpenAI expands internationally and across product surfaces, FinEng plays a critical role in enabling durable, efficient revenue growth. About the Role As a Data Scientist for Financial Engineering, you ",
+   "url": "https://jobs.ashbyhq.com/openai/082f4d82-499f-4150-892f-0b0d1105fffe",
+   "posted": "2026-10-08T23:23:59.805+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 54,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-b8a1293b-bf5b-488d-8257-869584db6496",
+   "title": "Technical Program Manager, Support Delivery",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s User Operations team shepherds our customer\u2019s adoption of AI and ensures that our customers' product experience is nothing short of exceptional. We are building the very first post-AGI support team. We resolve complex issues, provide technical guidance, and support customers in maximizing value and adoption from deploying our products. We work closely with Sales, Technical Success, Product, Engineering and others to deliver the best possible experience to our customers at scale. OpenAI's customers represent a range of diverse backgrounds and maturity, from early-stage s",
+   "url": "https://jobs.ashbyhq.com/openai/b8a1293b-bf5b-488d-8257-869584db6496",
+   "posted": "2026-05-22T20:56:10.615+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 54,
+   "matched_skills": [
+    "Excel",
+    "Dashboards",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-4a4a2604-b4b3-4944-a2a2-4ec4c5261d7d",
+   "title": "Technical Program Manager, Infrastructure Systems & Tooling",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI's Industrial Compute organization is building and operating the infrastructure foundation for the next generation of AI. Infrastructure Operations works across facilities, hardware, network operations, incident management, data center engineering, delivery teams, and external partners to bring capacity online safely, understand its operational state, and improve it over time. As OpenAI's data center portfolio grows across first-party and partner-delivered capacity, the organization needs clear goals, trusted data, repeatable processes, and systems that make ownership, ris",
+   "url": "https://jobs.ashbyhq.com/openai/4a4a2604-b4b3-4944-a2a2-4ec4c5261d7d",
+   "posted": "2026-09-04T19:12:38.859+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 54,
+   "matched_skills": [
+    "SQL",
+    "Dashboards",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-5cc72bc7-e6a0-40e0-9f60-23474cd9acdb",
+   "title": "Technical Program Manager, Capacity Analytics & Tooling",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Compute Infrastructure team runs the GPU fleet and large-scale compute clusters that serve the models backing ChatGPT and the API, while also supporting training workloads for our next generation models. We operate a large, modern GPU fleet and provide a unified platform for other OpenAI teams to run production Applied AI and Research training workloads. We seek to learn from deployment and distribute the benefits of AI, while ensuring that this powerful tool is used responsibly and safely. Safety is more important to us than unfettered growth. ABOUT THE ROLE You will join t",
+   "url": "https://jobs.ashbyhq.com/openai/5cc72bc7-e6a0-40e0-9f60-23474cd9acdb",
+   "posted": "2026-11-05T02:20:23.682+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 54,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-932c9cc1-c542-4f67-8d0d-443de87b8213",
+   "title": "Data Program Manager, Human Data",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The Human Data team turns human feedback into reliable signals for training and evaluation. We design and run end-to-end programs that capture the depth of human intent behind everyday and high-stakes uses of our models. Our remit spans bespoke data campaigns, scalable synthetic data generation, and product-embedded signals. We partner closely across all research teams to translate these signals into training datasets, novel evaluations, and feedback loops that push the frontier of our models and advance their applications. About the Role As a Data Program Manager in the Human D",
+   "url": "https://jobs.ashbyhq.com/openai/932c9cc1-c542-4f67-8d0d-443de87b8213",
+   "posted": "2026-08-19T15:23:14.534+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-db993e24-ce4f-4f55-9187-403726bcb957",
+   "title": "Technical Program Manager, Cloud AI Partnerships",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Product & Platform teams at OpenAI are responsible for delivering the company\u2019s most impactful offerings\u2014such as ChatGPT, our API platform, and new enterprise capabilities\u2014to a global and diverse customer base. These systems must perform at scale and deliver exceptional experiences to developers, consumers, and businesses alike. Technical Program Managers at OpenAI play a key leadership role in scaling these efforts, partnering deeply with product, engineering, design, and go-to-market teams to bring ambitious ideas to life and ensure clarity and discipline in execution. ABO",
+   "url": "https://jobs.ashbyhq.com/openai/db993e24-ce4f-4f55-9187-403726bcb957",
+   "posted": "2026-08-17T22:40:59.308+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-aeac2b78-1f4a-4dfe-b88f-25fc8adf5bb3",
+   "title": "GRC Program Manager, Audit & Controls",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s Governance, Risk, and Compliance team helps ensure security and privacy are grounded in how our products and systems actually operate. Assurance Operations partners with Security, Engineering, Infrastructure, Product, Privacy, and Legal to make controls provable, risk decisions explicit, and audit readiness a result of well-designed systems. About the Role We are hiring a technical, product-minded GRC builder who can own consequential audits while improving the control and evidence systems behind them. You will build a reusable common control framework, use Codex to aut",
+   "url": "https://jobs.ashbyhq.com/openai/aeac2b78-1f4a-4dfe-b88f-25fc8adf5bb3",
+   "posted": "2026-08-06T16:57:58.422+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "SQL"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-3a05c5d7-fdd9-4e0e-823a-2ae08b59958b",
+   "title": "Technical Program Manager, AI Safety & Safeguards",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM OpenAI\u2019s mission is to ensure that artificial general intelligence benefits all of humanity. Safely delivering increasingly capable AI systems requires scalable technical safeguards, clear ownership of emerging risks, rigorous deployment readiness, and close coordination across research, engineering, product, operations, legal, policy, and external partners. Our Technical Program Managers lead complex, high-stakes initiatives that turn safety commitments into deployed systems and measurable outcomes. We work across model development, infrastructure, product, and operational resp",
+   "url": "https://jobs.ashbyhq.com/openai/3a05c5d7-fdd9-4e0e-823a-2ae08b59958b",
+   "posted": "2026-08-18T17:22:44.264+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-0728d036-6057-4194-942f-34254610c18f",
+   "title": "Technical Program Manager, Actuators",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About Team Our Robotics team is focused on unlocking general-purpose robotics and advancing toward AGI-level intelligence in dynamic, real-world environments. Working across the full model and systems stack, we integrate cutting-edge hardware and software to explore a broad range of robotic form factors. We strive to seamlessly blend high-level AI capabilities with the physical constraints of real-world systems to improve people\u2019s lives. About the Role We are looking for a Technical Program Manager to own actuator development and integration from system goals through production readiness. The ",
+   "url": "https://jobs.ashbyhq.com/openai/0728d036-6057-4194-942f-34254610c18f",
+   "posted": "2026-08-20T21:59:40.593+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-356c5dca-472d-458e-826e-51d923e93eaa",
+   "title": "Research Program Manager, Frontier Assurance",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The Frontier Assurance team brings independent scrutiny into OpenAI\u2019s safety decisions and helps the public understand and assess our safety work. We lead third-party assessments and safeguard testing for OpenAI\u2019s flagship launches, pilot new assurance mechanisms such as embedded auditing, run our misalignment disclosure process, and incorporate independent expert input as evidence for critical safety decisions. About the Role As a Research Program Manager on the Frontier Assurance team, you will build programs that bring independent expertise into frontier AI safety decisions a",
+   "url": "https://jobs.ashbyhq.com/openai/356c5dca-472d-458e-826e-51d923e93eaa",
+   "posted": "2026-09-22T01:05:58.683+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-3ae71c21-60dd-42b2-a913-58df05988976",
+   "title": "Vendor Security Technical Program Manager",
+   "company": "OpenAI",
+   "location": "US - Remote / Seattle / San Francisco",
+   "description": "About the Team OpenAI's Vendor Security team helps internal teams work securely with external products, services, and partners. Our work spans software, infrastructure, hardware, professional and managed services, vendor-provided workforces, data, and research. We build the programs and products that help teams understand vendor risk and put effective safeguards in place, protecting our customers, employees, and the company. About the Role We are looking for a Vendor Security Technical Program Manager who can make sound security decisions and turn recurring vendor-security problems into tools ",
+   "url": "https://jobs.ashbyhq.com/openai/3ae71c21-60dd-42b2-a913-58df05988976",
+   "posted": "2026-10-02T19:54:48.855+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-5f094405-1b54-419b-88b2-df1d7eb16af0",
+   "title": "Compliance Program Manager \u2014 Regulatory Compliance",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the team Governance, Risk, and Compliance (GRC) builds compliance programs and provides assurance for OpenAI\u2019s technology, people, and products. We combine technical understanding with practical operations to reduce risk, support product and research teams, and produce reliable evidence of how our controls work. About the role As a Regulatory Compliance Program Manager, you will build and operate programs that turn regulatory requirements into clear responsibilities, effective processes, and evidence that can withstand external scrutiny. Your work will focus on AI safety/security and con",
+   "url": "https://jobs.ashbyhq.com/openai/5f094405-1b54-419b-88b2-df1d7eb16af0",
+   "posted": "2026-10-20T20:26:46.214+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-533659ff-2272-4683-87c9-b07d00feea4c",
+   "title": "Technical Program Manager, Lab Infrastructure (Silicon & Systems)",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team We believe that increasing compute is a huge lever to AI progress. The Hardware Systems team owns the design, development, and sourcing of the compute, storage and interconnect hardware needed to build OpenAI\u2019s supercomputers at the scale needed to deliver AGI that is beneficial to humanity. This includes: - Optimizing the processing hardware for AI models - Developing and optimizing the end-to-end software stack - Designing hardware systems to keep up with the needs of training and inference - Enabling the scale-up and scale-out interconnect fabrics create the world\u2019s most powe",
+   "url": "https://jobs.ashbyhq.com/openai/533659ff-2272-4683-87c9-b07d00feea4c",
+   "posted": "2026-10-27T18:56:49.895+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 50,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-daabc150-f22c-421e-b30d-1a50fb4cede3",
+   "title": "Operations Analyst, User Safety & Risk Operations",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team At OpenAI, our User Safety & Risk Operations (USRO) team helps protect our products and users from abuse, fraud, safety risks, and other forms of misuse. We translate real-world user and operational signals into timely decisions, practical interventions, and improvements to our products and systems. This role will take on new, ambiguous, or underdeveloped operational risks and help mature them into scalable capabilities. We work across USRO and partner closely with Product, Engineering, Data Science, Product Policy, Legal, Safety, Support, and external vendors or partnership sta",
+   "url": "https://jobs.ashbyhq.com/openai/daabc150-f22c-421e-b30d-1a50fb4cede3",
+   "posted": "2026-08-17T19:48:01.309+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Business analyst",
+   "target_company": true,
+   "score": 46,
+   "matched_skills": [
+    "SQL",
+    "Dashboards",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-cd3c9c99-9527-4ba2-bea7-9f8f4892bc62",
+   "title": "Technical Program Manager, Global Programs \u2014 Applied AI Engineering",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM OpenAI\u2019s Applied AI Engineering (AIE) team helps customers around the world build and deploy AI solutions that deliver measurable business value. We combine technical expertise and hands-on engineering to identify high-impact use cases, develop and evaluate solutions, and guide customers from experimentation to production\u2014bringing deployment insights back to OpenAI\u2019s product and research teams. ABOUT THE ROLE We are seeking a Technical Program Manager to lead the planning, execution, and ongoing operations of programs across OpenAI\u2019s global Applied AI Engineering team. You will ",
+   "url": "https://jobs.ashbyhq.com/openai/cd3c9c99-9527-4ba2-bea7-9f8f4892bc62",
+   "posted": "2026-09-28T16:10:28.109+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 46,
+   "matched_skills": [
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-f5dfd3aa-3bf6-49e2-b780-0da281a21533",
+   "title": "Data Scientist, SMB Ads Growth ",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Role OpenAI's ads platform is experiencing rapid global scale. As the Lead Data Scientist for SMB Ads Growth, you will architect the analytics function end-to-end\u2014driving strategy across targeting, funnel optimization, and performance forecasting. You will work directly with the SMB Ads Marketing team and your insights will be the primary catalyst for high-stakes decisions across marketing, product, and sales engineering. What You'll Do Full-Funnel Analytics - Establish the foundational growth metrics and North Star KPIs for the SMB Ads ecosystem, optimizing the journey from lead acq",
+   "url": "https://jobs.ashbyhq.com/openai/f5dfd3aa-3bf6-49e2-b780-0da281a21533",
+   "posted": "2026-07-30T18:24:32.929+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 45,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "R",
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-5edd5a13-2fc9-427c-ad88-2b67c97a0afe",
+   "title": "Research Program Manager, Human Data Campaigns",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI's Human Data Team creates custom data solutions driving groundbreaking research. Our work enhances and evaluates our flagship models and products like ChatGPT, GPT-5, and Sora, and contributes to safety initiatives through collaboration with our Preparedness and Safety Systems teams. About the Role As a Research Program Manager (RPM) in the Human Data team you will partner with research and engineering to design and implement pragmatic solutions for collecting high-quality data. You will be a key interface between our research roadmap, external vendors, AI trainers, and t",
+   "url": "https://jobs.ashbyhq.com/openai/5edd5a13-2fc9-427c-ad88-2b67c97a0afe",
+   "posted": "2026-07-21T18:24:43.052+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 41,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Dashboards"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-cf1e5c80-f42e-45ab-a937-2a4024b961e1",
+   "title": "GRC Technical Program Manager, Product Lifecycle Assurance",
+   "company": "OpenAI",
+   "location": "San Francisco / New York City / Seattle / Washington, DC",
+   "description": "About the Team Governance, Risk, and Compliance (GRC) is foundational to Security delivering mission outcomes at OpenAI. The GRC team provides security assurances and builds compliance for OpenAI\u2019s technology, people, and products. We are technical in what we build but operational in how we do our work, and we partner deeply with Product, Security, Legal, Privacy, GTM, and Field Security to help OpenAI move quickly while maintaining trust with customers, auditors, regulators, and the public. About the Role We are looking for an experienced Product Lifecycle Assurance IC to help scale OpenAI\u2019s ",
+   "url": "https://jobs.ashbyhq.com/openai/cf1e5c80-f42e-45ab-a937-2a4024b961e1",
+   "posted": "2026-09-01T16:45:27.293+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 41,
+   "matched_skills": [
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-5dce6671-9aa8-4c49-b263-b175a2a927f8",
+   "title": "Applied Data Scientist, Personalization & Machine Learning",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team We work across product, growth, and monetization to help people get more value from OpenAI\u2019s products. We identify opportunities for machine learning, build and test early solutions, and partner with engineering and product to bring successful approaches into production. About the Role We\u2019re looking for a data scientist who can enter an unfamiliar product area, find a useful ML application, and turn it into a working product intervention. You will own the work from problem definition and data preparation through modeling, experimentation, and launch evaluation. Projects will inc",
+   "url": "https://jobs.ashbyhq.com/openai/5dce6671-9aa8-4c49-b263-b175a2a927f8",
+   "posted": "2026-10-15T01:07:39.592+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 41,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Statistics"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-b82699a2-5819-4276-a402-fd88f56f9246",
+   "title": "Data Scientist, Cloud Distribution & Growth",
+   "company": "OpenAI",
+   "location": "San Francisco / Seattle",
+   "description": "About the Team Cloud service providers give developers a way to use OpenAI models in the environments where they already build and run software. Our team works with Go-to-Market (GTM), Product, Engineering, and Finance to understand which customers we can reach through these providers and what helps them grow from a first API call to a production workload. About the Role In your first few months, you\u2019ll identify a customer segment or workload where OpenAI can grow, recommend an investment to GTM, Product, and Engineering, and define how we\u2019ll know whether it brought new usage to OpenAI. Your f",
+   "url": "https://jobs.ashbyhq.com/openai/b82699a2-5819-4276-a402-fd88f56f9246",
+   "posted": "2026-10-28T19:59:03.385+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Data scientist",
+   "target_company": true,
+   "score": 41,
+   "matched_skills": [
+    "Python",
+    "SQL",
+    "Statistics"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-8fb1615c-34bf-47c4-a1d1-b7b2f836bbd3",
+   "title": "Technical Program Manager, Compute Infrastructure",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Compute Infrastructure team runs the GPU fleet and large-scale compute clusters that serve the models backing ChatGPT and the API, while also supporting training workloads for our next generation of models. We provide a unified platform for OpenAI teams to run production Applied AI and Research training workloads. Our work spans cloud providers, bare metal infrastructure, data centers, and the foundational services that make compute usable. We partner across Engineering, Research, Product, Capacity Planning, Finance, and Data Center Infrastructure to bring new capacity onlin",
+   "url": "https://jobs.ashbyhq.com/openai/8fb1615c-34bf-47c4-a1d1-b7b2f836bbd3",
+   "posted": "2026-11-05T02:20:02.702+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 38,
+   "matched_skills": [
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-063d1957-23f0-4976-b8bd-93a0d4a31cfb",
+   "title": "Supply Chain Operations Program Manager, AI Infrastructure",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s Hardware organization develops AI-native silicon and system-level solutions for the unique demands of advanced AI workloads. Building on efforts like Jalape\u00f1o, the team is developing future generations of AI-native silicon and tightly integrated systems to power the next generation of frontier models. By co-designing chips, systems, tools, and methodologies, the team helps deliver faster, more efficient, and production-ready hardware for OpenAI\u2019s supercomputing platform. About the Role We are seeking a Operations Program Manager (OPM) to serve as the single-threaded ope",
+   "url": "https://jobs.ashbyhq.com/openai/063d1957-23f0-4976-b8bd-93a0d4a31cfb",
+   "posted": "2026-09-24T13:54:41.447+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 38,
+   "matched_skills": [
+    "Dashboards",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-c3458423-2cd6-40c0-bb5d-a5c3726a1d08",
+   "title": "Supply Chain Program Manager (SCPM) - AI Infrastructure",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s Hardware organization is building the infrastructure foundation for frontier AI systems. The Supply Chain organization is responsible for enabling scalable, resilient, and efficient supply chains across custom silicon, systems, networking, memory, storage, and rack-scale infrastructure. The Supply Chain Program Manager (SCPM) drives end-to-end material readiness and supply chain execution across the hardware lifecycle, from early architecture and sourcing strategy through production ramp and sustaining operations. We are looking for experienced supply chain leaders who ",
+   "url": "https://jobs.ashbyhq.com/openai/c3458423-2cd6-40c0-bb5d-a5c3726a1d08",
+   "posted": "2026-05-14T19:00:14.175+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 38,
+   "matched_skills": [
+    "Dashboards",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-0a7f5df1-f5aa-4df6-98a8-5afbc660782b",
+   "title": "Technical Program Manager, Applied Infrastructure",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "TECHNICAL PROGRAM MANAGER \u2013 APPLIED INFRASTRUCTURE ABOUT THE TEAM The Applied team safely brings OpenAI\u2019s technology to the world, powering products like ChatGPT, and the APIs for GPT and more. Behind these products is a complex and rapidly evolving infrastructure platform that enables scale, performance, and safety. The Applied Infrastructure TPM team partners across engineering to lead foundational programs that ensure OpenAI\u2019s infrastructure can meet current and future demand. About the Role We\u2019re looking for a seasoned Technical Program Manager to drive critical infrastructure programs acr",
+   "url": "https://jobs.ashbyhq.com/openai/0a7f5df1-f5aa-4df6-98a8-5afbc660782b",
+   "posted": "2025-05-02T02:28:39.912+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 38,
+   "matched_skills": [
+    "Excel",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-7ad77c42-4fc5-4e03-86d3-aaa99d6f2fe9",
+   "title": "Project Manager, Design and Construction - R&D/Lab Buildouts",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Role As an Industrial Builds Project Manager on the Design & Construction team, you will support OpenAI\u2019s research, scaling and manufacturing activities by providing project management and leadership on mission critical construction projects with complex engineering design and extensive interfaces. This role owns technical coordination across MEP, civil/structural, and architectural scopes, and is accountable for on-time, on-budget delivery of complex build-outs. This role is based in San Francisco, CA, but you will be expected to travel to project sites regularly, aligned with proje",
+   "url": "https://jobs.ashbyhq.com/openai/7ad77c42-4fc5-4e03-86d3-aaa99d6f2fe9",
+   "posted": "2026-10-26T20:29:14.099+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 38,
+   "matched_skills": [
+    "Excel",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-d769a04e-c300-454a-8c68-1c93d04a6bb6",
+   "title": "Research Program Manager, Safety Systems",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team Safety Systems manages the complete lifecycle of safety efforts for OpenAI\u2019s frontier models. We work across research, engineering, product, and policy to understand risks, develop and validate safeguards, and support responsible deployment. Our work spans safeguards research and deployment, safety assessments, launch readiness, and trusted-access programs for advanced capabilities. We address risks including biological and cyber misuse and misalignment, with programs that strengthen safety across models and products. About the Role We\u2019re hiring Research Program Managers across ",
+   "url": "https://jobs.ashbyhq.com/openai/d769a04e-c300-454a-8c68-1c93d04a6bb6",
+   "posted": "2026-10-30T17:06:26.464+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 38,
+   "matched_skills": [
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-65913e57-80e0-4a1a-bbc3-265ae8a1a41b",
+   "title": "Research Program Manager \u2013 Adversarial Model Research",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Human Data team at OpenAI is responsible for identifying and mitigating risks in advanced AI systems by designing evaluations, surfacing vulnerabilities, and collaborating closely with researchers to strengthen model reliability and public trust. ABOUT THE ROLE As a Research Program Manager, you will lead initiatives that test the safety and robustness of OpenAI\u2019s models through creative experimentation and structured evaluation. You\u2019ll coordinate efforts across research and engineering teams to transform ambiguous risks into concrete research programs and influence future m",
+   "url": "https://jobs.ashbyhq.com/openai/65913e57-80e0-4a1a-bbc3-265ae8a1a41b",
+   "posted": "2026-01-26T19:46:58.485+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 33,
+   "matched_skills": [
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-ad958934-fd89-4033-8b13-1a4871d8073c",
+   "title": "Technical Program Manager, Developer Velocity",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Product & Platform teams at OpenAI are responsible for delivering the company\u2019s most impactful offerings\u2014such as ChatGPT, our API platform, and new enterprise capabilities\u2014to a global and diverse customer base. These systems must perform at scale and deliver exceptional experiences to developers, consumers, and businesses alike. The ChatGPT engineering org builds and operates the systems that bring product improvements to users across backend services, web, mobile, and desktop platforms. The Developer Velocity team partners with product engineering, platform, infrastructure,",
+   "url": "https://jobs.ashbyhq.com/openai/ad958934-fd89-4033-8b13-1a4871d8073c",
+   "posted": "2026-09-02T22:51:34.006+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 33,
+   "matched_skills": [
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-c0c70d7e-c450-4ca4-842a-dbc5e643c048",
+   "title": "Technical Program Manager, Storage & Data Infrastructure",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI's data and storage infrastructure spans data platforms, online databases, and file/object storage. These systems underpin data ingestion and processing, durable persistence, indexing and retrieval, and product file experiences. As frontier models and agents evolve how they use memory, history and snapshots, the underlying architecture increasingly shapes the capabilities products can deliver\u2014and their latency, reliability, cost and efficiency. About the Role We are looking for a technically deep TPM to independently define and lead multiple programs across data platforms,",
+   "url": "https://jobs.ashbyhq.com/openai/c0c70d7e-c450-4ca4-842a-dbc5e643c048",
+   "posted": "2026-09-08T16:09:44.302+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 33,
+   "matched_skills": [
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-35e6355f-52fd-405e-b5b6-98b275666d39",
+   "title": "Research Program Manager, Governance",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM OpenAI\u2019s Governance team helps shape how the company responsibly develops and deploys increasingly capable AI. We bring together technical evidence, policy, and operational perspectives to help the company address emerging risks, resolve difficult questions, and make well-supported decisions. Our work includes shaping and improving governance practices, supporting effective oversight, developing clear assessments and recommendations, and ensuring that decisions lead to action. We work closely with research, safety, security, legal, and product teams to identify gaps, reconcile d",
+   "url": "https://jobs.ashbyhq.com/openai/35e6355f-52fd-405e-b5b6-98b275666d39",
+   "posted": "2026-09-09T23:09:59.345+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 33,
+   "matched_skills": [
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-4bcc25ef-cf03-47db-896c-0fd9122afab1",
+   "title": "Research Program Manager, Safety Measurement ",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team Safety Systems manages the complete lifecycle of safety efforts for OpenAI\u2019s frontier models, ensuring our models are deployed responsibly and have a positive impact on society. Our work spans diverse research and engineering initiatives\u2014from system-level safeguards and model training to evaluation and red-teaming\u2014all aimed at mitigating misuse and maintaining our high bar for safety. We lead OpenAI's commitment to developing and deploying safe Artificial General Intelligence (AGI), fostering a culture of trust, responsibility, and transparency. Our goal is to continuously learn",
+   "url": "https://jobs.ashbyhq.com/openai/4bcc25ef-cf03-47db-896c-0fd9122afab1",
+   "posted": "2026-10-30T00:00:05.054+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 31,
+   "matched_skills": [
+    "Dashboards",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-cffa3a8d-918a-4e91-a1c6-3fa84a454408",
+   "title": "Technical Program Manager, Applied API & Product ",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "TECHNICAL PROGRAM MANAGER \u2013 APPLIED PRODUCT & PLATFORM ABOUT THE TEAM The Product & Platform teams at OpenAI are responsible for delivering the company\u2019s most impactful offerings\u2014such as ChatGPT, our API platform, and new enterprise capabilities\u2014to a global and diverse customer base. These systems must perform at scale and deliver exceptional experiences to developers, consumers, and businesses alike. Technical Program Managers at OpenAI play a key leadership role in scaling these efforts, partnering deeply with product, engineering, design, and go-to-market teams to bring ambitious ideas to l",
+   "url": "https://jobs.ashbyhq.com/openai/cffa3a8d-918a-4e91-a1c6-3fa84a454408",
+   "posted": "2026-07-07T22:38:34.247+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 30,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-d990222d-ecf1-417f-a248-6e962b5a18e0",
+   "title": "User Safety & Risk Operations Analyst - Global Response (Weekend Shift)",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM At OpenAI, our Trust, Safety & Risk Operations teams safeguard our products, users, and the company from abuse, fraud, scams, regulatory non-compliance, and other emerging risks. We operate at the intersection of operations, compliance, user trust, and safety working closely with Legal, Policy, Engineering, Product, Go-To-Market, and external partners to ensure our platforms are safe, compliant, and trusted by a diverse, global user base. The Global Safety Response Operations team within the org provides 24/7 coverage for user safety, risk, and regulatory escalations across Open",
+   "url": "https://jobs.ashbyhq.com/openai/d990222d-ecf1-417f-a248-6e962b5a18e0",
+   "posted": "2026-08-03T16:44:13.642+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Business analyst",
+   "target_company": true,
+   "score": 30,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-66b7c776-aa50-4e86-aec1-5c8e07868522",
+   "title": "Support Program Manager, Partnerships",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The User Operations team (Support) is central to ensuring that our customers' experience with our products is nothing short of exceptional. We resolve complex issues, provide technical guidance, and support customers in maximizing value and adoption from deploying our products. We work closely with Sales, Technical Success, Product, Engineering and others to deliver the best possible experience to our customers at scale. OpenAI's customers represent a range of diverse backgrounds and maturity, from early-stage startups to established global enterprises. About the Role We\u2019re seek",
+   "url": "https://jobs.ashbyhq.com/openai/66b7c776-aa50-4e86-aec1-5c8e07868522",
+   "posted": "2026-10-09T21:03:45.191+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 30,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-98cdff28-940d-48e8-b1d7-a0df38dd16d8",
+   "title": "Service Design Program Manager, Support",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The User Operations team (Support) is central to ensuring that our customers' experience with our products is nothing short of exceptional. We resolve complex issues, provide technical guidance, and support customers in maximizing value and adoption from deploying our products. We work closely with Sales, Technical Success, Product, Engineering and others to deliver the best possible experience to our customers at scale. OpenAI's customers represent a range of diverse backgrounds and maturity, from early-stage startups to established global enterprises. About the Role We\u2019re look",
+   "url": "https://jobs.ashbyhq.com/openai/98cdff28-940d-48e8-b1d7-a0df38dd16d8",
+   "posted": "2026-10-22T00:12:06.048+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 30,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-ee047eec-ae79-474b-9f1b-764242bc3c63",
+   "title": "Technical Program Manager, Strategic Initiatives",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The Strategic Initiatives & Operations team is in need of a Technical Program Manager (TPM) to streamline our processes, including full safety governance and integration of various safety research and mitigations into our ChatGPT, API, and any frontier models. This role is critical for driving safe deployment of our new models, synthesizing inputs from multiple stakeholders, ranging across research, product, engineering, legal and policy, and ensuring all the risks are effectively and properly monitored, mitigated or resolved. About the Role As a TPM, you will be responsible for",
+   "url": "https://jobs.ashbyhq.com/openai/ee047eec-ae79-474b-9f1b-764242bc3c63",
+   "posted": "2026-07-06T17:24:40.023+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 25,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-58c28108-5bc6-449d-8461-9274f5abd7e6",
+   "title": "Technical Program Manager, Model Deployment & Capacity",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Product & Platform teams at OpenAI are responsible for delivering the company\u2019s most impactful offerings\u2014such as ChatGPT, our API platform, and new enterprise capabilities\u2014to a global and diverse customer base. These systems must perform at scale and deliver exceptional experiences to developers, consumers, and businesses alike. The ChatGPT infrastructure team is responsible for ensuring that our products can serve rapidly growing demand with the performance, reliability, and quality our users expect. This work sits at the intersection of product demand, model deployment, in",
+   "url": "https://jobs.ashbyhq.com/openai/58c28108-5bc6-449d-8461-9274f5abd7e6",
+   "posted": "2026-09-02T22:16:49.919+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 25,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-e49133e6-4030-4295-b393-1725aa410344",
+   "title": "Technical Program Manager, Research Compute Services",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM Research Compute Services builds the systems that help researchers use OpenAI\u2019s compute fleet effectively. We partner with Research and Compute Infrastructure to support workloads across the compute stack, including pretraining, synthetic data generation, sampling, research inference, and reinforcement learning. Our work connects changing research needs with capacity planning, allocation, and scheduling. We build tools and services that help researchers express their compute needs, access the right resources, and run their workloads effectively. As the fleet and our research amb",
+   "url": "https://jobs.ashbyhq.com/openai/e49133e6-4030-4295-b393-1725aa410344",
+   "posted": "2026-11-05T02:20:19.189+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 25,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-cda6eab0-edab-4dfc-8923-40ca3b0928b5",
+   "title": "Legal Program Manager",
+   "company": "OpenAI",
+   "location": "San Francisco / New York City",
+   "description": "About the Team OpenAI\u2019s Legal team helps advance our mission by tackling novel legal issues in AI. Our team brings together professionals across technology, privacy, intellectual property, corporate, employment, tax, regulatory, and litigation. Our regulatory compliance work turns legal requirements into practical programs that support responsible AI development and deployment. About the Role As a Legal Program Manager, you will independently manage assigned programs and workstreams across Legal priorities, with a focus on emerging user risk. Your portfolio may include sensitive user escalatio",
+   "url": "https://jobs.ashbyhq.com/openai/cda6eab0-edab-4dfc-8923-40ca3b0928b5",
+   "posted": "2026-11-06T01:10:29.471+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 25,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-31df540f-4062-46e8-918f-b747a90c7052",
+   "title": "Compensation Operations Analyst",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s People team supports a complex, rapidly growing organization of researchers, engineers, and business teams. The Compensation function ensures accuracy, scalability, and operational excellence across all compensation tools, systems, and data flows. About the Role We\u2019re hiring a Compensation Operations Analyst to build and run the systems, tools, and processes that power compensation at OpenAI. This role is deeply operational and technical: you will configure HRIS modules, manage compensation tools end-to-end, maintain pristine data quality, and ensure compensation cycles",
+   "url": "https://jobs.ashbyhq.com/openai/31df540f-4062-46e8-918f-b747a90c7052",
+   "posted": "2026-10-13T16:57:23.821+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Business analyst",
+   "target_company": true,
+   "score": 21,
+   "matched_skills": [
+    "Dashboards",
+    "Data cleaning",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-c7c5ef17-af83-483c-a825-f461f9f63b17",
+   "title": "Research Program Manager ",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM OpenAI\u2019s Research Program Management team partners with researchers and engineers to advance the development of increasingly capable, safe, and beneficial AI systems. We work alongside teams developing our core models, helping turn ambitious research goals into coordinated execution across model training, alignment and safety, and research infrastructure. The team also regularly collaborates with our closest cross-functional partners such as Security, Applied product and engineering, Strategy, and Scaling. ABOUT THE ROLE As a Research Program Manager, you will embed with researc",
+   "url": "https://jobs.ashbyhq.com/openai/c7c5ef17-af83-483c-a825-f461f9f63b17",
+   "posted": "2026-08-31T20:05:18.238+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 13,
+   "matched_skills": [
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-c9e9e3a5-fb93-4162-b876-6266016819c0",
+   "title": "Trust & Safety Ads Operations Analyst, Programs",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team At OpenAI, Trust & Safety Operations is central to protecting OpenAI\u2019s platform, customers, and the public from abuse. We partner closely with Product, Engineering, Legal, Policy and Go To Market teams to identify emerging risks, build and mature enforcement systems, and ensure high-integrity operations while delivering a great user experience at scale. We\u2019re building the Monetization Trust & Safety Operations team to ensure OpenAI can grow advertising in a way that is safe, trusted, and sustainable\u2014for users, advertisers, and the business. This team sits at the intersection of ",
+   "url": "https://jobs.ashbyhq.com/openai/c9e9e3a5-fb93-4162-b876-6266016819c0",
+   "posted": "2026-08-28T16:17:49.267+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Business analyst",
+   "target_company": true,
+   "score": 13,
+   "matched_skills": [
+    "Dashboards",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-e1b8fd3a-315c-4480-9105-98228093d429",
+   "title": "Technical Systems Program Manager, User Operations",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The User Operations team (Support) is central to ensuring that our customers' experience with our products is nothing short of exceptional. We resolve complex issues, provide technical guidance, and support customers in maximizing value and adoption from deploying our products. We work closely with Sales, Technical Success, Product, Engineering and others to deliver the best possible experience to our customers at scale. OpenAI's customers represent a range of diverse backgrounds and maturity, from early-stage startups to established global enterprises. ABOUT THE ROLE OpenAI\u2019s t",
+   "url": "https://jobs.ashbyhq.com/openai/e1b8fd3a-315c-4480-9105-98228093d429",
+   "posted": "2026-08-11T19:18:29.085+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 13,
+   "matched_skills": [
+    "Salesforce",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-3228eed1-9cb3-4330-82c3-19fb3dbb4408",
+   "title": "Program Manager, National Security Policy Operations",
+   "company": "OpenAI",
+   "location": "San Francisco / Washington, DC",
+   "description": "ABOUT THE TEAM OpenAI's mission is to ensure that general-purpose artificial intelligence benefits all of humanity. We believe that achieving our goal requires effective engagement with public policy stakeholders and the broader community impacted by AI. The Global Affairs team builds trusted relationships that help external stakeholders understand advanced AI and ensure that their perspectives inform our work. Within Global Affairs, the National Security Policy team works across OpenAI to understand how increasingly capable AI systems affect security, governance, and democratic resilience, an",
+   "url": "https://jobs.ashbyhq.com/openai/3228eed1-9cb3-4330-82c3-19fb3dbb4408",
+   "posted": "2026-10-19T16:40:55.004+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 13,
+   "matched_skills": [
+    "Dashboards",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-616ef2ce-3790-432d-9a6d-32abb2f52ff9",
+   "title": "Platform Operations Program Manager",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team The Account & Platform Integrity Operations team protects OpenAI\u2019s ecosystem by ensuring that users, developers, partners, and organizations can access and build on our platform safely and responsibly. The team works across account integrity, fraud prevention, abuse detection, and platform risk to prevent bad actors from exploiting OpenAI\u2019s products and developer surfaces. This role will sit within the Account & Platform Integrity Operations team while partnering closely with teams across the Ecosystem organization to ensure the platform can scale rapidly without compromising tr",
+   "url": "https://jobs.ashbyhq.com/openai/616ef2ce-3790-432d-9a6d-32abb2f52ff9",
+   "posted": "2026-10-15T18:20:11.961+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 5,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-bc059a72-8ff3-4a80-a499-5b82ccca1f05",
+   "title": "Regulatory Operations Analyst, User Safety & Risk Operations",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team At OpenAI, our User Operations team safeguards our products and users from legal risk, regulatory non-compliance, fraud, and abuse. The team operates at the intersection of operations, compliance, and user trust, embedded within the broader User Operations organization and collaborating cross-functionally with Legal, Governance Risk & Compliance, Policy and Engineering. We support a global and diverse user base across OpenAI\u2019s suite of product offerings, and developer tools by managing sensitive inbound tickets, regulatory obligations, and escalations. Every user-facing action i",
+   "url": "https://jobs.ashbyhq.com/openai/bc059a72-8ff3-4a80-a499-5b82ccca1f05",
+   "posted": "2026-09-22T18:03:42.783+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Business analyst",
+   "target_company": true,
+   "score": 5,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-6fd50ace-941b-4559-992f-e53f9b76c9a0",
+   "title": "Security Program Manager",
+   "company": "OpenAI",
+   "location": "US - Remote / New York City / Seattle / Washington, DC / San Francisco",
+   "description": "About the Team OpenAI builds powerful AI systems like ChatGPT, the OpenAI API, and enterprise products that serve millions of users across the globe. As we scale, securing our infrastructure, protecting sensitive data, supporting employees\u2019 velocity, and meeting global compliance standards are essential to our success and societal impact. Security at OpenAI is a cross-cutting organization that includes Security, Privacy, IT, GRC, Corporate Security, and other teams. Program Managers play a critical role in aligning teams and delivering execution at scale. About the Role We\u2019re seeking a Program",
+   "url": "https://jobs.ashbyhq.com/openai/6fd50ace-941b-4559-992f-e53f9b76c9a0",
+   "posted": "2026-09-24T22:51:44.298+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 5,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-87ef8476-e930-47ed-abc2-a1bedcc074fb",
+   "title": "Technical Program Manager, People Innovation Labs",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team People Innovation Labs is a product, design, and engineering team embedded in the People organization. We build AI-powered products that improve how OpenAI finds and supports exceptional talent and helps employees do their best work. Our work spans recruiting, HR, learning, performance, culture, and company-wide knowledge. We build new products from the ground up and work closely with teams across OpenAI to rethink existing workflows using our latest models. About the Role We\u2019re looking for an experienced Technical Program Manager to lead execution across a portfolio of complex,",
+   "url": "https://jobs.ashbyhq.com/openai/87ef8476-e930-47ed-abc2-a1bedcc074fb",
+   "posted": "2026-11-04T18:58:10.109+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 5,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-df242b29-6a84-4968-8d57-cbeec20dee67",
+   "title": "Technical Program Manager, Global Infrastructure Planning",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM The Compute Infrastructure team runs the GPU fleet and large compute clusters that support OpenAI\u2019s research, ChatGPT, and the API. Our work spans GPUs, CPUs, storage, networking, and cloud infrastructure, bringing these systems together so teams can train and serve models at scale. We seek to learn from deployment and distribute the benefits of AI, while ensuring that this powerful tool is used responsibly and safely. Safety is more important to us than unfettered growth. ABOUT THE ROLE You will own CPU capacity planning and management across Research and Compute. Working with ",
+   "url": "https://jobs.ashbyhq.com/openai/df242b29-6a84-4968-8d57-cbeec20dee67",
+   "posted": "2026-11-05T02:20:11.560+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 5,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "adzuna-5954209156",
+   "title": "Business Analyst with Healthcare Experience",
+   "company": "Cognizant",
+   "location": "Sacramento, Sacramento County",
+   "description": "Business Analyst with Healthcare Experience About the Role We are seeking a Business Analyst to support digital transformation initiatives for our healthcare client. In this role, you will partner with product, compliance, business, and technology teams to analyze requirements, define solutions, and support the delivery of digital experiences that improve member and provider interactions. This position is ideal for a collaborative professional who thrives in Agile environments and enjoys transl\u2026",
+   "url": "https://www.adzuna.com/land/ad/5954209156?se=4ECWUafZ8RG4Yuhswe5J5w&utm_medium=api&utm_source=6610b163&v=2292CCC97F5527BEE769201425300E64A3154B38",
+   "posted": "2026-11-05T07:40:40Z",
+   "salary_min": 80559.48,
+   "salary_max": 80559.48,
+   "source": "Adzuna",
+   "remote": false,
+   "role": "Business analyst",
+   "target_company": false,
+   "score": 0,
+   "matched_skills": [],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "adzuna-5954595431",
+   "title": "Senior Business Analyst",
+   "company": "Bright Vision Technologies",
+   "location": "Fremont, Alameda County",
+   "description": "Senior Business Analyst - Remote Bright Vision Technologies is a technology consulting and software development company delivering cloud, AI, data, and enterprise solutions across the United States. This is a fantastic opportunity to join an established and well-respected organization offering tremendous career growth potential. Job Title: Product Lead / Business Analyst Job Location: Preferably NY, NJ, CT, PA Onsite/Hybrid: Mostly Remote Need s omeone who can be onsite NYC as needed but mostly\u2026",
+   "url": "https://www.adzuna.com/details/5954595431?utm_medium=api&utm_source=6610b163",
+   "posted": "2026-11-05T12:30:08Z",
+   "salary_min": 95202.4,
+   "salary_max": 95202.4,
+   "source": "Adzuna",
+   "remote": false,
+   "role": "Business analyst",
+   "target_company": false,
+   "score": 0,
+   "matched_skills": [],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-c414f15f-60c4-40b5-a896-d2ad6c7f4415",
+   "title": "Senior Technical Program Manager - Security",
+   "company": "OpenAI",
+   "location": "US - Remote / New York City / Seattle / Washington, DC / San Francisco",
+   "description": "About the Team OpenAI builds powerful AI systems like ChatGPT, the OpenAI API, and enterprise products that serve millions of users across the globe. As we scale, securing our infrastructure, protecting sensitive data, and meeting global compliance standards are essential to our success and societal impact. Security at OpenAI is a cross-cutting function that spans infrastructure, applied engineering, legal, policy, and product. Technical Program Managers (TPMs) play a critical leadership role in aligning teams and delivering execution at scale and this role will be foundational in shaping how ",
+   "url": "https://jobs.ashbyhq.com/openai/c414f15f-60c4-40b5-a896-d2ad6c7f4415",
+   "posted": "2026-06-25T17:30:54.205+00:00",
+   "source": "Company site",
+   "remote": true,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 0,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-b65f9125-2c3a-4507-bb20-6213952b5f2c",
+   "title": "Senior Program Manager, Consumer Device Safety Operations",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "ABOUT THE TEAM At OpenAI, the User Safety & Risk Operations (USRO) team helps protect our products and users from abuse, fraud, safety risks, and other forms of misuse. We operate at the front line of real-world safety and risk management, translating user and operational signals into timely decisions, effective interventions, and improvements to our systems. This role sits on a team focused on building operational capacity for new, ambiguous, and fast-moving company priorities. The team defines what needs to be built, creates the operating model to support it, and works with partner teams to ",
+   "url": "https://jobs.ashbyhq.com/openai/b65f9125-2c3a-4507-bb20-6213952b5f2c",
+   "posted": "2026-08-11T16:13:55.815+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 0,
+   "matched_skills": [
+    "Dashboards",
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  },
+  {
+   "id": "ashby-openai-73a111f9-e83d-4cce-9148-2a32ccf1d251",
+   "title": "Senior Legal Discovery Program Manager",
+   "company": "OpenAI",
+   "location": "San Francisco",
+   "description": "About the Team OpenAI\u2019s Legal team helps advance our mission by navigating novel and foundational legal issues in AI. Our Litigation and Regulatory team works on complex, high-stakes matters and partners across the company to build the systems and practices that support them. Our discovery function brings together legal expertise, technology, and operational judgment to meet today\u2019s needs and prepare for continued growth. About the Role We\u2019re seeking an experienced Senior Legal Discovery Program Manager to help shape and scale the discovery capabilities supporting OpenAI\u2019s growing litigation, ",
+   "url": "https://jobs.ashbyhq.com/openai/73a111f9-e83d-4cce-9148-2a32ccf1d251",
+   "posted": "2026-11-04T17:22:14.101+00:00",
+   "source": "Company site",
+   "remote": false,
+   "role": "Project manager",
+   "target_company": true,
+   "score": 0,
+   "matched_skills": [
+    "Stakeholder communication"
+   ],
+   "first_seen": "2026-11-06"
+  }
+ ]
+}
