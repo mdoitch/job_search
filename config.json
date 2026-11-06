@@ -1,6 +1,7 @@
 {
   "max_days_old": 3,
   "keep_days": 30,
+  "max_years_experience": 2,
   "include_remote_us": true,
   "roles": {
     "Data analyst": ["data analyst", "analytics analyst", "reporting analyst", "insights analyst", "product analyst", "business intelligence", "\\bBI\\b analyst", "analytics engineer"],
@@ -10,18 +11,15 @@
   },
   "exclude_titles": ["\\bdirector\\b", "\\bvp\\b", "vice president", "head of", "\\bprincipal\\b"],
   "adzuna_queries": ["data analyst", "business analyst", "data scientist", "project manager", "analytics", "product analyst"],
-  "target_companies": ["apple", "disney", "google", "openai", "tesla"],
-  "target_company_searches": ["Apple", "Disney", "Google", "OpenAI", "Tesla"],
+  "target_companies": ["apple", "disney", "google", "openai", "tesla", "notion", "pinterest", "netflix", "alo"],
+  "target_company_searches": ["Apple", "Disney", "Google", "OpenAI", "Tesla", "Netflix", "Alo Yoga", "Notion", "Pinterest"],
   "company_feeds": [
+    {"platform": "greenhouse", "board": "aloyoga", "company": "Alo"},
     {"platform": "greenhouse", "board": "spacex", "company": "SpaceX"},
     {"platform": "greenhouse", "board": "riotgames", "company": "Riot Games"},
     {"platform": "greenhouse", "board": "andurilindustries", "company": "Anduril"},
-    {"platform": "greenhouse", "board": "goodrx", "company": "GoodRx"},
-    {"platform": "greenhouse", "board": "servicetitan", "company": "ServiceTitan"},
     {"platform": "greenhouse", "board": "scopely", "company": "Scopely"},
     {"platform": "greenhouse", "board": "sweetgreen", "company": "Sweetgreen"},
-    {"platform": "greenhouse", "board": "fabfitfun", "company": "FabFitFun"},
-    {"platform": "ashby", "board": "whatnot", "company": "Whatnot"},
     {"platform": "greenhouse", "board": "airbnb", "company": "Airbnb"},
     {"platform": "greenhouse", "board": "stripe", "company": "Stripe"},
     {"platform": "greenhouse", "board": "pinterest", "company": "Pinterest"},
@@ -36,7 +34,6 @@
     {"platform": "greenhouse", "board": "dropbox", "company": "Dropbox"},
     {"platform": "greenhouse", "board": "anthropic", "company": "Anthropic"},
     {"platform": "lever", "board": "palantir", "company": "Palantir"},
-    {"platform": "lever", "board": "plaid", "company": "Plaid"},
     {"platform": "ashby", "board": "notion", "company": "Notion"},
     {"platform": "ashby", "board": "ramp", "company": "Ramp"},
     {"platform": "ashby", "board": "openai", "company": "OpenAI"}

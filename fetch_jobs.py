@@ -76,8 +76,45 @@ def location_ok(location, is_remote=False):
 
 
 def is_target_company(company):
-    c = company.lower()
-    return any(t in c for t in CONFIG["target_companies"])
+    # Whole words only, so "apple" doesn't match "Applebee's"
+    return any(re.search(rf"\b{re.escape(t)}\b", company, re.I)
+               for t in CONFIG["target_companies"])
+
+
+# ---------------------------------------------------------------- requirements
+
+WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+         "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+NUM = r"(\d{1,2}|" + "|".join(WORDS) + r")"
+YEARS_RE = re.compile(
+    rf"(?:minimum of|at least|min\.?)?\s*{NUM}\s*(?:\+|plus)?\s*"
+    rf"(?:(?:-|–|to)\s*\d{{1,2}}\s*)?(?:\+\s*)?(?:or more\s+)?years?"
+    rf"(?=[^.;]{{0,80}}?(?:experienc|work|industry|professional|role))",
+    re.I,
+)
+
+
+def years_required(text):
+    """Smallest number of years of experience the posting asks for, or None."""
+    found = []
+    for m in YEARS_RE.finditer(text):
+        n = m.group(1).lower()
+        n = WORDS.get(n, None) if not n.isdigit() else int(n)
+        if n is not None and n <= 15:
+            found.append(n)
+    return min(found) if found else None
+
+
+def phd_required(text):
+    """True when a PhD is asked for and no lower degree is accepted."""
+    if not re.search(r"\bph\.?\s?d\b|doctora", text, re.I):
+        return False
+    lower_ok = re.search(
+        r"master'?s|\bM\.?S\.?\b|bachelor'?s|\bB\.?S\.?\b|\bB\.?A\.?\b|"
+        r"MBA|equivalent (?:practical )?experience|phd (?:is )?(?:a )?(?:plus|preferred)|"
+        r"preferred[^.]{0,40}ph\.?d",
+        text, re.I)
+    return not lower_ok
 
 
 # ---------------------------------------------------------------- scoring
@@ -95,9 +132,14 @@ def score_job(job):
         score += 25
     if matches_any(title, p["too_senior"]):
         score -= 35
-    years = [int(y) for y in re.findall(r"(\d+)\+?\s*(?:years|yrs)", text)]
-    if years and min(years) >= 5:
-        score -= 20
+    years = job["years_required"]
+    if years is not None:
+        if years <= 2:
+            score += 10
+        elif years >= 3:
+            score -= 30
+    if job["phd_required"]:
+        score -= 30
     if matches_any(text, p["degree"]):
         score += 10
     if job["target_company"]:
@@ -274,6 +316,15 @@ def main():
 
         job["role"] = family
         job["la_area"] = bool(LA_PATTERN.search(job["location"]))
+        job["years_required"] = years_required(job["description"])
+        job["phd_required"] = phd_required(job["description"])
+        job["senior_title"] = matches_any(job["title"], CONFIG["profile"]["too_senior"])
+        job["fits_experience"] = (
+            not job["senior_title"]
+            and not job["phd_required"]
+            and (job["years_required"] is None
+                 or job["years_required"] <= CONFIG["max_years_experience"])
+        )
         job["target_company"] = is_target_company(job["company"])
         job["score"], job["matched_skills"] = score_job(job)
         job["first_seen"] = old.get(job["id"], {}).get("first_seen", today)
@@ -290,6 +341,8 @@ def main():
     OUT_FILE.parent.mkdir(exist_ok=True)
     OUT_FILE.write_text(json.dumps({"updated": NOW.isoformat(), "jobs": jobs}, indent=1))
     new_today = sum(j["first_seen"] == today for j in jobs)
+    fits = sum(j.get("fits_experience", False) for j in jobs)
+    print(f"{fits} jobs fit your experience level (0-{CONFIG['max_years_experience']} years, no PhD)")
     companies = len({j["company"] for j in jobs})
     print(f"Saved {len(jobs)} jobs from {companies} companies ({new_today} new today)")
 
