@@ -113,28 +113,45 @@ YEARS_RE = re.compile(
 
 
 DEGREE_PATH_RE = re.compile(
-    r"\b(?:for|with)\s+(?:a\s+|an\s+)?(?:(ph\.?\s?d|doctora)|(master'?s|m\.?s\.?\b|graduate degree|advanced degree))",
+    r"\b(?:for|with)\s+(?:a\s+|an\s+)?(?:(ph\.?\s?d|doctora)|"
+    r"(master'?s|m\.?s\.?\b|graduate degree|advanced degree)|"
+    r"(bachelor'?s|b\.?s\.?\b|b\.?a\.?\b|undergraduate))",
     re.I)
+PREFERRED_HEADING = re.compile(
+    r"(?:preferred|nice[- ]to[- ]have|bonus|desired|pluses|ideal(?:ly)?)\s*"
+    r"(?:qualifications|skills|experience|requirements|points)?\s*:", re.I)
+REQUIRED_HEADING = re.compile(
+    r"(?:minimum|basic|required|must[- ]have|key)\s*(?:qualifications|requirements|skills|experience)"
+    r"|(?<!preferred)(?<!desired)(?<!bonus)(?<!additional)(?<!nice to have)"
+    r"(?:^|\s)(?:requirements|qualifications|what you(?:'ll)? (?:need|bring))\s*:", re.I)
+INLINE_PREFERRED = re.compile(r"preferred|\ba plus\b|nice to have|\bideal|desired|bonus", re.I)
 
 
 def _year_mentions(text):
-    """Each experience requirement as (years, degree path it applies to or None).
+    """Each experience requirement in a posting as (years, path, preferred).
 
-    Handles postings like "1-4+ years for PhDs or 3-5+ years for Master's".
+    path is the degree it applies to ("phd", "masters", "bachelors") or None,
+    e.g. "1-4+ years for PhDs or 3-5+ years for Master's".
+    preferred is True for nice-to-haves ("5+ years preferred", or anything
+    under a "Preferred qualifications" heading).
     """
+    headings = sorted([(m.start(), "pref") for m in PREFERRED_HEADING.finditer(text)] +
+                      [(m.start(), "req") for m in REQUIRED_HEADING.finditer(text)])
     out = []
     for m in YEARS_RE.finditer(text):
         n = m.group(1).lower()
         n = WORDS.get(n, None) if not n.isdigit() else int(n)
         if n is None or n > 15:
             continue
-        tail = text[m.end():m.end() + 60]
-        nxt = re.search(r"\d", tail)          # stop at the next number
+        tail = text[m.end():m.end() + 70]
+        nxt = re.search(r"\d|[.;]", tail)     # stop at the next number or sentence end
         if nxt:
             tail = tail[:nxt.start()]
         d = DEGREE_PATH_RE.search(tail)
-        path = None if not d else ("phd" if d.group(1) else "masters")
-        out.append((n, path))
+        path = None if not d else ("phd" if d.group(1) else "masters" if d.group(2) else "bachelors")
+        section = [kind for pos, kind in headings if pos < m.start()]
+        preferred = bool(INLINE_PREFERRED.search(tail)) or (section[-1:] == ["pref"])
+        out.append((n, path, preferred))
     return out
 
 
@@ -156,9 +173,13 @@ def requirement_sentences(text, limit=1200):
 
 
 def years_required(text):
-    """Smallest years of experience asked of someone without a PhD, or None."""
-    found = [n for n, path in _year_mentions(text) if path != "phd"]
-    return min(found) if found else None
+    """Years of experience the posting requires (not counting a PhD path or
+    nice-to-haves). Requirements in a list all apply at once, so this is the
+    LARGEST one: "6+ years of analytics and 1+ year managing people" is 6."""
+    found = [n for n, path, pref in _year_mentions(text) if path is None and not pref]
+    if not found:   # only degree-specific numbers, e.g. "5+ years with a Bachelor's"
+        found = [n for n, path, pref in _year_mentions(text) if path == "bachelors" and not pref]
+    return max(found) if found else None
 
 
 def phd_required(text):
@@ -194,24 +215,37 @@ def masters_valued(text):
 
 
 def years_with_masters(text, years):
-    """Experience needed once a master's is counted."""
-    masters_path = [n for n, path in _year_mentions(text) if path == "masters"]
-    for m in MASTERS_PATH_YEARS_RE.finditer(text):
+    """Experience required of someone with a master's degree."""
+    masters_path = [n for n, path, pref in _year_mentions(text) if path == "masters" and not pref]
+    for m in list(MASTERS_PATH_YEARS_RE.finditer(text)) + list(MASTERS_YEARS_RE.finditer(text)):
         n = m.group(1).lower()
         n = int(n) if n.isdigit() else WORDS.get(n)
         if n is not None:
             masters_path.append(n)
-    if masters_path:                          # "3-5+ years for Master's"
+    if masters_path:            # "3-5+ years for Master's", "Master's + 1 year"
         return min(masters_path)
-    m = MASTERS_YEARS_RE.search(text)
-    if m:
-        n = m.group(1).lower()
-        n = int(n) if n.isdigit() else WORDS.get(n)
-        if n is not None:
-            return n if years is None else min(n, years)
     if MASTERS_INSTEAD_RE.search(text):
-        return 0
+        return 0                # "2 years of experience or a Master's degree"
     return years
+
+
+# Wording that only fits experienced hires. Two or more of these = senior role.
+SENIOR_LANGUAGE = re.compile(
+    r"c-suite|c-level|vp-level|\bVPs?\b and|executive (?:stakeholder|leadership|presence|audiences?)|"
+    r"present(?:ing)? to (?:and influenc\w+ )?(?:executives|senior leadership|the board)|"
+    r"deep (?:experience|expertise)|extensive (?:experience|expertise)|seasoned|"
+    r"track record of (?:driving|leading|building|scaling|delivering|managing|owning)|"
+    r"subject matter expert|thought leader|mentor(?:ing)? (?:junior|other)|"
+    r"(?:scaled|scaling) (?:a |an )?(?:team|organization|org|business)", re.I)
+
+
+def senior_language(text):
+    return len({m.group(0).lower() for m in SENIOR_LANGUAGE.finditer(text)}) >= 2
+
+
+MANAGES_PEOPLE = re.compile(
+    r"people management|direct reports|manag(?:e|ing) (?:a|the) team|"
+    r"lead(?:ing)? a team of|team management experience|hire,? (?:and )?develop", re.I)
 
 
 NOT_FULL_TIME_TITLE = re.compile(
@@ -247,11 +281,16 @@ def score_job(job):
         score += 15
     if matches_any(title, p["masters_titles"]):
         score += 8
-    # New-grad programs: big applicant pools of fresh bachelor's grads
+    # New-grad programs need no experience, and ones starting in 2027 line up
+    # with finishing your master's in May 2027
     if job["new_grad_program"]:
-        score -= 10
+        score += 10
+    if job["starts_2027"]:
+        score += 10
     if matches_any(title, p["too_senior"]):
         score -= 35
+    if job.get("senior_language") or job.get("manages_people"):
+        score -= 30
     years = job["effective_years"]
     if years is not None:
         if years == 0:
@@ -480,11 +519,30 @@ def main():
         job["effective_years"] = years_with_masters(job["description"], job["years_required"])
         job["new_grad_program"] = matches_any(
             f"{job['title']} {job['description'][:400]}", CONFIG["profile"]["new_grad"])
+        job["starts_2027"] = bool(re.search(
+            r"2027 (?:start|cohort|graduat|new grad)|class of 2027|"
+            r"graduat\w* (?:in |by )?(?:spring |summer |may |june |winter |december )?2027|"
+            r"start(?:ing|s)? (?:in |date )?(?:summer |fall |spring )?2027",
+            f"{job['title']} {job['description']}", re.I))
+        # No years in the requirements, but "10+ years" under Preferred: that
+        # still shows the level they're hiring at
+        if job["effective_years"] is None:
+            preferred = [n for n, path, pref in _year_mentions(job["description"])
+                         if pref and path != "phd"]
+            if preferred and min(preferred) >= 3:
+                job["effective_years"] = min(preferred)
+        # A new-grad program that doesn't state years is a no-experience role
+        if job["effective_years"] is None and job["new_grad_program"]:
+            job["effective_years"] = 0
         job["phd_required"] = phd_required(job["description"])
         job["senior_title"] = matches_any(job["title"], CONFIG["profile"]["too_senior"])
+        job["manages_people"] = bool(MANAGES_PEOPLE.search(job["description"]))
+        job["senior_language"] = senior_language(job["description"])
         job["experience_listed"] = job["effective_years"] is not None
         job["fits_experience"] = (
             not job["senior_title"]
+            and not job["manages_people"]
+            and not job["senior_language"]
             and not job["phd_required"]
             and (job["effective_years"] is None
                  or job["effective_years"] <= CONFIG["max_years_experience"])
@@ -502,9 +560,8 @@ def main():
     fits = sum(j.get("fits_experience", False) for j in jobs)
     masters = sum(j.get("masters_valued", False) for j in jobs)
     confirmed = sum(j.get("fits_experience") and j.get("experience_listed") for j in jobs)
-    print(f"{confirmed} jobs confirmed at your level (0-{CONFIG['max_years_experience']} years "
-          f"counting your master's), {fits - confirmed} more don't list experience, "
-          f"{masters} value a master's")
+    print(f"{confirmed} jobs need no experience (counting your master's and new-grad "
+          f"programs), {fits - confirmed} more don't list experience, {masters} value a master's")
     companies = len({j["company"] for j in jobs})
     print(f"Saved {len(jobs)} jobs from {companies} companies ({new_today} new today)")
 
