@@ -125,9 +125,9 @@
       <option value="new">Newest first</option>
     </select>
     <label class="check"><input type="checkbox" id="la"> LA area only</label>
-    <label class="check"><input type="checkbox" id="targets"> My top 5 companies only</label>
+    <label class="check"><input type="checkbox" id="targets"> My favorite companies only</label>
     <label class="check"><input type="checkbox" id="fresh"> New today</label>
-    <label class="check"><input type="checkbox" id="hideSenior" checked> Hide poor fits</label>
+    <label class="check"><input type="checkbox" id="hideSenior" checked> Fits my experience (0–2 years, no PhD)</label>
   </div>
 
   <p class="count" id="count" aria-live="polite"></p>
@@ -161,7 +161,7 @@ function render() {
     (!$("targets").checked || j.target_company) &&
     (!$("la").checked || j.la_area) &&
     (!$("fresh").checked || j.first_seen === today) &&
-    (!$("hideSenior").checked || j.score >= 20) &&
+    (!$("hideSenior").checked || j.fits_experience) &&
     (!q || `${j.title} ${j.company} ${j.location} ${(j.matched_skills || []).join(" ")}`.toLowerCase().includes(q))
   );
   list.sort($("sort").value === "new"
@@ -179,6 +179,8 @@ function render() {
       j.la_area ? `<span class="tag target">LA area</span>` : "",
       j.target_company ? `<span class="tag target">On your list</span>` : "",
       `<span class="tag">${esc(j.role)}</span>`,
+      j.years_required != null ? `<span class="tag">${j.years_required}+ yrs experience</span>` : `<span class="tag">Experience not listed</span>`,
+      j.phd_required ? `<span class="tag">PhD required</span>` : "",
       salary(j) ? `<span class="tag">${salary(j)}</span>` : "",
     ].join("");
     const skills = (j.matched_skills || []).length
