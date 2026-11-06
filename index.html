@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maya’s job board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #F4F7F3;
+    --surface: #FFFFFF;
+    --ink: #17271F;
+    --muted: #5B6A61;
+    --line: #D8E0D8;
+    --green: #1F5C45;
+    --gold: #C38E14;
+    --gold-soft: #F6E9C6;
+    --new: #1F5C45;
+    --focus: #C38E14;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0F1713; --surface: #16211B; --ink: #E5ECE6; --muted: #9AA99F;
+      --line: #2A3830; --green: #7CC4A0; --gold: #E5B54C; --gold-soft: #3A3220;
+      --new: #7CC4A0; --focus: #E5B54C;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0F1713; --surface: #16211B; --ink: #E5ECE6; --muted: #9AA99F;
+    --line: #2A3830; --green: #7CC4A0; --gold: #E5B54C; --gold-soft: #3A3220;
+    --new: #7CC4A0; --focus: #E5B54C;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 400 1rem/1.55 "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+  header h1 {
+    font: 700 clamp(2.2rem, 6vw, 3.6rem)/1 "Bricolage Grotesque", "Public Sans", system-ui, sans-serif;
+    letter-spacing: -0.03em; margin: 0 0 0.75rem; color: var(--green);
+  }
+  .summary { margin: 0; font-size: 1.15rem; max-width: 42rem; }
+  .summary strong { font-weight: 600; }
+  .updated { color: var(--muted); font-size: 0.875rem; margin: 0.35rem 0 0; }
+
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center;
+    margin: 2rem 0 0.5rem; padding: 1rem 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line);
+  }
+  .filters input[type="search"], .filters select {
+    font: inherit; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 6px; padding: 0.45rem 0.65rem;
+  }
+  .filters input[type="search"] { flex: 1 1 14rem; min-width: 0; }
+  .filters label.check { display: inline-flex; gap: 0.4rem; align-items: center; font-size: 0.95rem; cursor: pointer; }
+  .filters input[type="checkbox"] { accent-color: var(--green); width: 1rem; height: 1rem; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .count { color: var(--muted); font-size: 0.9rem; margin: 0.75rem 0 0; }
+
+  ol.jobs { list-style: none; padding: 0; margin: 0; }
+  .job {
+    display: grid; grid-template-columns: 1fr 11rem; gap: 0.25rem 2rem;
+    padding: 1.25rem 0; border-bottom: 1px solid var(--line);
+  }
+  .job h2 { font: 600 1.1rem/1.3 "Public Sans", system-ui, sans-serif; margin: 0; }
+  .job h2 a { color: var(--ink); text-decoration: none; }
+  .job h2 a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  .meta { color: var(--muted); font-size: 0.925rem; margin: 0.15rem 0 0; }
+  .meta .company { color: var(--ink); font-weight: 500; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; }
+  .tag { font-size: 0.8rem; padding: 0.1rem 0.5rem; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+  .tag.new { border-color: var(--new); color: var(--new); font-weight: 600; }
+  .tag.target { background: var(--gold-soft); border-color: transparent; color: var(--ink); }
+  .skills { font-size: 0.85rem; color: var(--muted); margin: 0.5rem 0 0; }
+
+  /* The fit strip: a 0–100 scale with a dot at this job's score */
+  .fit { align-self: start; padding-top: 0.2rem; }
+  .fit-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); }
+  .fit-label b { font: 700 1.35rem/1 "Bricolage Grotesque", system-ui, sans-serif; color: var(--ink); }
+  .strip { position: relative; height: 18px; margin-top: 0.35rem; }
+  .strip::before { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: var(--line); }
+  .strip .ticks { position: absolute; inset: 4px 0 auto; height: 10px;
+    background: linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0 / 25% 100%; border-right: 1px solid var(--line); }
+  .strip .bar { position: absolute; left: 0; top: 8px; height: 2px; background: var(--green); }
+  .strip .dot { position: absolute; top: 3px; width: 12px; height: 12px; margin-left: -6px;
+    border-radius: 50%; background: var(--gold); border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--gold); }
+
+  .empty { padding: 3rem 0; color: var(--muted); }
+  .empty strong { color: var(--ink); display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+
+  @media (max-width: 40rem) {
+    .job { grid-template-columns: 1fr; }
+    .fit { max-width: 14rem; margin-top: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Maya’s job board</h1>
+    <p class="summary" id="summary">Loading today’s openings…</p>
+    <p class="updated" id="updated"></p>
+  </header>
+
+  <div class="filters" role="search">
+    <input type="search" id="q" placeholder="Search title, company or skill" aria-label="Search jobs">
+    <select id="role" aria-label="Role type">
+      <option value="">All roles</option>
+      <option>Data analyst</option>
+      <option>Business analyst</option>
+      <option>Data scientist</option>
+      <option>Project manager</option>
+    </select>
+    <select id="sort" aria-label="Sort by">
+      <option value="score">Best fit first</option>
+      <option value="new">Newest first</option>
+    </select>
+    <label class="check"><input type="checkbox" id="targets"> My companies only</label>
+    <label class="check"><input type="checkbox" id="fresh"> New today</label>
+    <label class="check"><input type="checkbox" id="hideSenior" checked> Hide poor fits</label>
+  </div>
+
+  <p class="count" id="count" aria-live="polite"></p>
+  <ol class="jobs" id="jobs"></ol>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let jobs = [], today = "";
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function ago(dateStr) {
+  if (!dateStr) return "";
+  const days = Math.floor((Date.now() - new Date(dateStr)) / 864e5);
+  if (isNaN(days)) return "";
+  return days <= 0 ? "Posted today" : days === 1 ? "Posted yesterday" : `Posted ${days} days ago`;
+}
+function salary(j) {
+  if (!j.salary_min) return "";
+  const k = n => "$" + Math.round(n / 1000) + "k";
+  return j.salary_max && j.salary_max !== j.salary_min ? `${k(j.salary_min)}–${k(j.salary_max)}` : k(j.salary_min);
+}
+
+function render() {
+  const q = $("q").value.trim().toLowerCase();
+  const role = $("role").value;
+  let list = jobs.filter(j =>
+    (!role || j.role === role) &&
+    (!$("targets").checked || j.target_company) &&
+    (!$("fresh").checked || j.first_seen === today) &&
+    (!$("hideSenior").checked || j.score >= 20) &&
+    (!q || `${j.title} ${j.company} ${j.location} ${(j.matched_skills || []).join(" ")}`.toLowerCase().includes(q))
+  );
+  list.sort($("sort").value === "new"
+    ? (a, b) => (b.first_seen || "").localeCompare(a.first_seen || "") || b.score - a.score
+    : (a, b) => b.score - a.score);
+
+  $("count").textContent = `Showing ${list.length} of ${jobs.length}`;
+  if (!list.length) {
+    $("jobs").innerHTML = `<li class="empty"><strong>No jobs match these filters.</strong>Clear the search or turn off a filter to see more.</li>`;
+    return;
+  }
+  $("jobs").innerHTML = list.map(j => {
+    const tags = [
+      j.first_seen === today ? `<span class="tag new">New today</span>` : "",
+      j.target_company ? `<span class="tag target">On your list</span>` : "",
+      `<span class="tag">${esc(j.role)}</span>`,
+      salary(j) ? `<span class="tag">${salary(j)}</span>` : "",
+    ].join("");
+    const skills = (j.matched_skills || []).length
+      ? `<p class="skills">Matches your ${esc(j.matched_skills.join(", "))}</p>` : "";
+    return `<li class="job">
+      <div>
+        <h2><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a></h2>
+        <p class="meta"><span class="company">${esc(j.company)}</span>, ${esc(j.location)}. ${ago(j.posted)}</p>
+        <div class="tags">${tags}</div>
+        ${skills}
+      </div>
+      <div class="fit" aria-label="Fit score ${j.score} out of 100">
+        <div class="fit-label"><span>Fit</span><b>${j.score}</b></div>
+        <div class="strip" aria-hidden="true">
+          <div class="ticks"></div>
+          <div class="bar" style="width:${j.score}%"></div>
+          <div class="dot" style="left:${j.score}%"></div>
+        </div>
+      </div>
+    </li>`;
+  }).join("");
+}
+
+fetch("jobs.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    jobs = data.jobs || [];
+    today = (data.updated || "").slice(0, 10);
+    const fresh = jobs.filter(j => j.first_seen === today).length;
+    const targets = jobs.filter(j => j.target_company).length;
+    $("summary").innerHTML = `<strong>${jobs.length} openings</strong> across California, ` +
+      `<strong>${fresh} new today</strong>, ${targets} at companies on your list.`;
+    if (data.updated) $("updated").textContent = "Last updated " + new Date(data.updated).toLocaleString();
+    render();
+  })
+  .catch(() => {
+    $("summary").textContent = "No job list yet.";
+    $("jobs").innerHTML = `<li class="empty"><strong>jobs.json wasn’t found.</strong>Run the “Fetch jobs daily” workflow from the Actions tab on GitHub, then reload this page.</li>`;
+  });
+
+["q", "role", "sort", "targets", "fresh", "hideSenior"].forEach(id =>
+  $(id).addEventListener(id === "q" ? "input" : "change", render));
+</script>
+</body>
+</html>

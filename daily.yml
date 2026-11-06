@@ -1,0 +1,34 @@
+name: Fetch jobs daily
+
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 14:00 UTC = 7am Pacific (6am in winter)
+  workflow_dispatch:         # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - run: python fetch_jobs.py
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+
+      - name: Save results
+        run: |
+          git config user.name "job-bot"
+          git config user.email "job-bot@users.noreply.github.com"
+          git add docs/jobs.json
+          git diff --staged --quiet || git commit -m "Daily jobs update"
+          git push
