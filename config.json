@@ -1,16 +1,16 @@
 {
   "max_days_old": 5,
   "keep_days": 30,
-  "max_years_experience": 2,
+  "max_years_experience": 1,
   "include_remote_us": true,
   "roles": {
-    "Data analyst": ["data analyst", "analytics analyst", "reporting analyst", "insights analyst", "product analyst", "business intelligence", "\\bBI\\b analyst", "analytics engineer"],
-    "Business analyst": ["business analyst", "business systems analyst", "operations analyst", "strategy analyst", "marketing analyst"],
-    "Data scientist": ["data scien", "machine learning analyst", "statistician", "quantitative analyst", "decision scien"],
-    "Project manager": ["project manager", "program manager", "project coordinator", "program coordinator"]
+    "Data analyst": ["data analyst", "analytics analyst", "reporting analyst", "insights analyst", "product analyst", "business intelligence", "\\bBI (?:analyst|associate|specialist)", "analytics engineer", "analytics associate", "analytics specialist", "data specialist", "measurement analyst", "growth analyst", "research analyst", "consumer insights", "customer insights", "audience insights", "people analytics", "\\bCRM analyst", "web analyst", "digital analyst", "media analyst", "marketing analytics", "product analytics"],
+    "Business analyst": ["business analyst", "business systems analyst", "operations analyst", "strategy analyst", "marketing analyst", "business operations", "bizops", "strategy (?:&|and) operations", "pricing analyst", "revenue analyst", "revenue operations analyst", "sales operations analyst", "planning analyst", "demand planning", "merchandise planning", "supply chain analyst", "inventory analyst", "forecasting analyst", "commercial analyst", "category analyst", "content analyst", "programming analyst", "partnerships analyst", "e-?commerce analyst", "retail analyst", "sales analyst", "channel analyst"],
+    "Data scientist": ["data scien", "machine learning analyst", "statistician", "quantitative analyst", "decision scien", "marketing scien", "experimentation", "biostatistic", "econometric"],
+    "Project manager": ["project manager", "program manager", "project coordinator", "program coordinator", "project analyst", "program analyst", "\\bPMO\\b", "associate product manager", "product operations", "implementation analyst", "project specialist", "program specialist"]
   },
   "exclude_titles": ["\\bdirector\\b", "\\bvp\\b", "vice president", "head of", "\\bprincipal\\b"],
-  "adzuna_queries": ["data analyst", "business analyst", "data scientist", "project manager", "analytics", "product analyst", "decision scientist", "marketing analyst", "program manager"],
+  "adzuna_queries": ["data analyst", "business analyst", "data scientist", "product analyst", "project analyst", "project manager", "program manager", "decision scientist", "marketing analyst", "insights analyst"],
   "target_companies": ["apple", "disney", "google", "openai", "tesla", "notion", "pinterest", "netflix", "alo", "nbcuniversal", "universal music", "universal studios", "universal pictures"],
   "target_company_searches": ["Apple", "Disney", "Google", "OpenAI", "Tesla", "Netflix", "Alo Yoga", "Notion", "Pinterest", "NBCUniversal", "Universal Music Group", "Universal Studios"],
   "company_feeds": [
@@ -77,5 +77,6 @@
     "masters_titles": ["data scien", "decision scien", "statistician", "quantitative", "marketing scien", "experimentation", "analytics engineer", "insights", "research analyst", "strategy", "analyst ii"]
   },
   "la_area_boost": 12,
-  "local_company_searches": ["Amgen", "PennyMac", "AeroVironment", "Teledyne", "Guitar Center", "Sage Publishing", "Snap", "Hulu", "Mattel", "Sony Pictures", "Warner Bros", "Activision", "Cedars-Sinai", "Kaiser Permanente", "Hims"]
+  "local_company_searches": ["Amgen", "PennyMac", "AeroVironment", "Teledyne", "Guitar Center", "Sage Publishing", "Snap", "Hulu", "Mattel", "Sony Pictures", "Warner Bros", "Activision", "Cedars-Sinai", "Kaiser Permanente", "Hims"],
+  "adzuna_local_title_words": ["analyst", "analytics", "scientist", "project", "program"]
 }

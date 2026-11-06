@@ -32,7 +32,13 @@ HEADERS = {"User-Agent": "personal-job-board/1.0"}
 
 def clean(text):
     """Strip HTML tags and extra whitespace."""
-    text = re.sub(r"<[^>]+>", " ", unescape(text or ""))
+    text = text or ""
+    for _ in range(3):                 # Greenhouse encodes entities twice
+        decoded = unescape(text)
+        if decoded == text:
+            break
+        text = decoded
+    text = re.sub(r"<[^>]+>", " ", text).replace("\xa0", " ")
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -94,21 +100,64 @@ WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
          "seven": 7, "eight": 8, "nine": 9, "ten": 10}
 NUM = r"(\d{1,2}|" + "|".join(WORDS) + r")"
 YEARS_RE = re.compile(
-    rf"(?:minimum of|at least|min\.?)?\s*{NUM}\s*(?:\+|plus)?\s*"
-    rf"(?:(?:-|–|to)\s*\d{{1,2}}\s*)?(?:\+\s*)?(?:or more\s+)?years?"
-    rf"(?=[^.;]{{0,80}}?(?:experienc|work|industry|professional|role))",
+    # not "for over 70 years", "more than 35 years", "nearly 20 years"
+    rf"(?<!over )(?<!than )(?<!nearly )(?<!almost )(?<!past )"
+    rf"\b{NUM}\s*(?:\+|plus)?\s*"
+    rf"(?:(?:-|–|—|to)\s*\d{{1,2}}\s*)?(?:\+\s*)?(?:or more\s+)?(?:years?|yrs?)\b"
+    # not "25 years later", "5 years in a row", "a 10 year-long contract"
+    rf"(?!\s*(?:later|ago|old|in a row|in business|of history|-long|warranty))"
+    rf"(?=[^.;]{{0,80}}?(?:experienc|work|industry|professional|role|\bin\s|"
+    rf"manag|lead|build|analy|hands-on|as an?\b|post|full[- ]time))",
     re.I,
 )
 
 
-def years_required(text):
-    """Smallest number of years of experience the posting asks for, or None."""
-    found = []
+DEGREE_PATH_RE = re.compile(
+    r"\b(?:for|with)\s+(?:a\s+|an\s+)?(?:(ph\.?\s?d|doctora)|(master'?s|m\.?s\.?\b|graduate degree|advanced degree))",
+    re.I)
+
+
+def _year_mentions(text):
+    """Each experience requirement as (years, degree path it applies to or None).
+
+    Handles postings like "1-4+ years for PhDs or 3-5+ years for Master's".
+    """
+    out = []
     for m in YEARS_RE.finditer(text):
         n = m.group(1).lower()
         n = WORDS.get(n, None) if not n.isdigit() else int(n)
-        if n is not None and n <= 15:
-            found.append(n)
+        if n is None or n > 15:
+            continue
+        tail = text[m.end():m.end() + 60]
+        nxt = re.search(r"\d", tail)          # stop at the next number
+        if nxt:
+            tail = tail[:nxt.start()]
+        d = DEGREE_PATH_RE.search(tail)
+        path = None if not d else ("phd" if d.group(1) else "masters")
+        out.append((n, path))
+    return out
+
+
+# "3+ years with a Master's" (no "experience" right after the number)
+MASTERS_PATH_YEARS_RE = re.compile(
+    rf"{NUM}\s*(?:\+|plus)?\s*(?:(?:-|–|to)\s*\d{{1,2}}\s*)?\+?\s*years?[^.;\d]{{0,40}}?"
+    r"\b(?:for|with)\s+(?:a\s+|an\s+)?(?:master'?s|m\.?s\.?\b|graduate degree|advanced degree)",
+    re.I)
+
+
+def requirement_sentences(text, limit=1200):
+    """The sentences about years of experience or degrees, kept so a job can be
+    re-scored later after its description has been shortened."""
+    parts = re.split(r"(?<=[.;•])\s+", text)
+    keep = [x for x in parts if re.search(
+        r"\byears?\b|degree|master|ph\.?\s?d|bachelor|\bM\.?S\.?\b|\bB\.?S\.?\b|"
+        r"part[- ]time|contract|temporary|internship", x, re.I)]
+    return " ".join(keep)[:limit]
+
+
+def years_required(text):
+    """Smallest years of experience asked of someone without a PhD, or None."""
+    found = [n for n, path in _year_mentions(text) if path != "phd"]
     return min(found) if found else None
 
 
@@ -128,12 +177,15 @@ MASTERS_RE = re.compile(
     r"master'?s|\bM\.?S\.?\b(?! (?:Office|Excel|Word))|\bMSBA\b|\bMBA\b|"
     r"advanced degree|graduate degree", re.I)
 # "Bachelor's + 3 years, or Master's + 1 year" -> years needed with a master's
+MS_DEGREE = (r"(?:master'?s|\bM\.?S\.?(?:/M\.?A\.?)?\b"
+             r"(?!\s*(?:Office|Excel|Word|Teams|Project|Access|SQL|Power))"
+             r"|advanced degree|graduate degree)")
 MASTERS_YEARS_RE = re.compile(
-    rf"(?:master'?s|advanced degree|graduate degree)[^.;]{{0,60}}?(?:with|and|plus|\+)\s*{NUM}\+?\s*(?:or more\s+)?years?",
+    MS_DEGREE + rf"[^.;]{{0,60}}?(?:with|and|plus|\+)\s*{NUM}\+?\s*(?:or more\s+)?(?:years?|yrs?)",
     re.I)
 # "2 years of experience or a Master's degree" -> a master's replaces the experience
 MASTERS_INSTEAD_RE = re.compile(
-    r"years?[^.;]{0,50}\bor\b[^.;]{0,25}(?:master'?s|advanced degree|graduate degree)", re.I)
+    r"years?[^.;]{0,50}\bor\b[^.;]{0,25}" + MS_DEGREE + r"(?![^.;]{0,30}\d)", re.I)
 
 
 def masters_valued(text):
@@ -143,6 +195,14 @@ def masters_valued(text):
 
 def years_with_masters(text, years):
     """Experience needed once a master's is counted."""
+    masters_path = [n for n, path in _year_mentions(text) if path == "masters"]
+    for m in MASTERS_PATH_YEARS_RE.finditer(text):
+        n = m.group(1).lower()
+        n = int(n) if n.isdigit() else WORDS.get(n)
+        if n is not None:
+            masters_path.append(n)
+    if masters_path:                          # "3-5+ years for Master's"
+        return min(masters_path)
     m = MASTERS_YEARS_RE.search(text)
     if m:
         n = m.group(1).lower()
@@ -232,21 +292,25 @@ def fetch_adzuna():
         "max_days_old": CONFIG["max_days_old"],
         "content-type": "application/json",
     }
-    searches = [{"what_phrase": q} for q in CONFIG["adzuna_queries"]]
-    # The same searches again, focused on the LA area
-    searches += [{"what_phrase": q, "where": "Los Angeles", "distance": 50}
-                 for q in CONFIG["adzuna_queries"]]
-    # And around Thousand Oaks (covers Moorpark, Simi Valley, Westlake, Camarillo)
-    searches += [{"what_phrase": q, "where": "Thousand Oaks", "distance": 30}
-                 for q in CONFIG["adzuna_queries"]]
-    # Extra searches aimed at each target company
+    # Each search is (parameters, how many pages of 50 results to read)
+    # Statewide: specific job-title phrases
+    searches = [({"what_phrase": q}, 2) for q in CONFIG["adzuna_queries"]]
+    # Near you: every posting with these words in the title, newest first.
+    # This catches all the analyst titles (product, project, pricing, insights...)
+    # and the role filter in config.json decides which ones to keep.
+    for word in CONFIG["adzuna_local_title_words"]:
+        searches.append(({"title_only": word, "where": "Los Angeles",
+                          "distance": 50, "sort_by": "date"}, 4))
+        searches.append(({"title_only": word, "where": "Thousand Oaks",
+                          "distance": 30, "sort_by": "date"}, 2))
+    # Companies you like and big local employers without public job feeds
     for company in CONFIG["target_company_searches"] + CONFIG["local_company_searches"]:
-        searches.append({"what_and": company,
-                         "what_or": "analyst analytics scientist project"})
+        searches.append(({"what_and": company,
+                          "what_or": "analyst analytics scientist project program"}, 1))
 
     jobs = []
-    for s in searches:
-        for page in (1, 2):
+    for s, pages in searches:
+        for page in range(1, pages + 1):
             try:
                 r = requests.get(url.format(page=page), params={**base, **s},
                                  headers=HEADERS, timeout=30)
@@ -393,6 +457,8 @@ def main():
             continue
         if matches_any(job["title"], CONFIG["exclude_titles"]):
             continue
+        if job.get("requirements") and job["requirements"] not in job["description"]:
+            job["description"] = f"{job['description']} {job['requirements']}"
         if not is_full_time(job):
             continue
         # Same title + company from two sources counts as one posting
@@ -403,6 +469,12 @@ def main():
 
         job["role"] = family
         job["la_area"] = bool(LA_PATTERN.search(job["location"]))
+        # Carried-over jobs have a shortened description, so add back the
+        # requirement sentences saved on an earlier run
+        if "requirements" not in job:
+            job["requirements"] = requirement_sentences(job["description"])
+        elif job["requirements"] not in job["description"]:
+            job["description"] = f"{job['description']} {job['requirements']}"
         job["years_required"] = years_required(job["description"])
         job["masters_valued"] = masters_valued(job["description"])
         job["effective_years"] = years_with_masters(job["description"], job["years_required"])
@@ -410,6 +482,7 @@ def main():
             f"{job['title']} {job['description'][:400]}", CONFIG["profile"]["new_grad"])
         job["phd_required"] = phd_required(job["description"])
         job["senior_title"] = matches_any(job["title"], CONFIG["profile"]["too_senior"])
+        job["experience_listed"] = job["effective_years"] is not None
         job["fits_experience"] = (
             not job["senior_title"]
             and not job["phd_required"]
@@ -428,7 +501,10 @@ def main():
     new_today = sum(j["first_seen"] == today for j in jobs)
     fits = sum(j.get("fits_experience", False) for j in jobs)
     masters = sum(j.get("masters_valued", False) for j in jobs)
-    print(f"{fits} jobs fit your level, {masters} value a master's")
+    confirmed = sum(j.get("fits_experience") and j.get("experience_listed") for j in jobs)
+    print(f"{confirmed} jobs confirmed at your level (0-{CONFIG['max_years_experience']} years "
+          f"counting your master's), {fits - confirmed} more don't list experience, "
+          f"{masters} value a master's")
     companies = len({j["company"] for j in jobs})
     print(f"Saved {len(jobs)} jobs from {companies} companies ({new_today} new today)")
 
