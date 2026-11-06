@@ -127,8 +127,9 @@
     <label class="check"><input type="checkbox" id="la"> LA &amp; Ventura County only</label>
     <label class="check"><input type="checkbox" id="targets"> My favorite companies only</label>
     <label class="check"><input type="checkbox" id="masters"> Values a master’s</label>
+    <label class="check"><input type="checkbox" id="unlisted"> Include jobs that don’t list experience</label>
     <label class="check"><input type="checkbox" id="fresh"> New today</label>
-    <label class="check"><input type="checkbox" id="hideSenior" checked> Fits my level (master’s grad, no PhD)</label>
+    <label class="check"><input type="checkbox" id="hideSenior" checked> Fits my level (0–1 years with a master’s)</label>
   </div>
 
   <p class="count" id="count" aria-live="polite"></p>
@@ -163,7 +164,7 @@ function render() {
     (!$("la").checked || j.la_area) &&
     (!$("masters").checked || j.masters_valued) &&
     (!$("fresh").checked || j.first_seen === today) &&
-    (!$("hideSenior").checked || j.fits_experience) &&
+    (!$("hideSenior").checked || (j.fits_experience && (j.experience_listed || $("unlisted").checked))) &&
     (!q || `${j.title} ${j.company} ${j.location} ${(j.matched_skills || []).join(" ")}`.toLowerCase().includes(q))
   );
   list.sort($("sort").value === "new"
@@ -228,7 +229,7 @@ fetch("jobs.json", { cache: "no-store" })
     $("jobs").innerHTML = `<li class="empty"><strong>jobs.json wasn’t found.</strong>Run the “Fetch jobs daily” workflow from the Actions tab on GitHub, then reload this page.</li>`;
   });
 
-["q", "role", "sort", "la", "targets", "masters", "fresh", "hideSenior"].forEach(id =>
+["q", "role", "sort", "la", "targets", "masters", "unlisted", "fresh", "hideSenior"].forEach(id =>
   $(id).addEventListener(id === "q" ? "input" : "change", render));
 </script>
 </body>
