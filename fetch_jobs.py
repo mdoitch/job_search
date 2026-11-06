@@ -48,18 +48,25 @@ def role_family(title):
 
 
 LA_AREA = (
-    r"Los Angeles|\bLA\b|Santa Monica|Culver City|Burbank|Glendale|Pasadena|"
-    r"Hawthorne|El Segundo|Playa Vista|Long Beach|Irvine|Costa Mesa|Torrance|"
-    r"Venice|Marina del Rey|Hollywood|Beverly Hills|Century City|"
-    r"Manhattan Beach|Van Nuys|Woodland Hills|Sherman Oaks|Thousand Oaks|"
-    r"Calabasas|Newport Beach|Anaheim|Orange County|Inglewood|Carson|"
-    r"Downey|Santa Clarita|Westlake Village|Redondo Beach|Encino"
+    # Los Angeles County
+    r"Los Angeles|Santa Monica|Culver City|Burbank|Glendale|Pasadena|"
+    r"Hawthorne|El Segundo|Playa Vista|Playa del Rey|Long Beach|Torrance|"
+    r"Venice|Marina del Rey|Hollywood|Beverly Hills|Century City|Westwood|"
+    r"Brentwood|Malibu|Manhattan Beach|Hermosa Beach|Redondo Beach|Van Nuys|"
+    r"Woodland Hills|Sherman Oaks|Studio City|Encino|Tarzana|Northridge|"
+    r"Chatsworth|Canoga Park|West Hills|Porter Ranch|Calabasas|Agoura Hills|"
+    r"Westlake Village|Inglewood|Carson|Downey|Santa Clarita|Valencia|"
+    r"Monrovia|Arcadia|Alhambra|Lancaster|Palmdale|Universal City|"
+    # Ventura County / Conejo Valley
+    r"Thousand Oaks|Newbury Park|Oak Park|Moorpark|Simi Valley|Camarillo|"
+    r"Oxnard|Ventura|Port Hueneme"
 )
 LA_PATTERN = re.compile(LA_AREA, re.I)
 CA_PATTERN = re.compile(
     r"\b(CA|California)\b|San Francisco|San Jose|San Diego|"
     r"Palo Alto|Mountain View|Sunnyvale|Cupertino|Santa Clara|"
     r"Oakland|Berkeley|Fremont|Menlo Park|Redwood City|Sacramento|"
+    r"Irvine|Costa Mesa|Newport Beach|Anaheim|Orange County|"
     r"San Mateo|Emeryville|San Luis Obispo|Bay Area|" + LA_AREA,
     re.I,
 )
@@ -117,6 +124,53 @@ def phd_required(text):
     return not lower_ok
 
 
+MASTERS_RE = re.compile(
+    r"master'?s|\bM\.?S\.?\b(?! (?:Office|Excel|Word))|\bMSBA\b|\bMBA\b|"
+    r"advanced degree|graduate degree", re.I)
+# "Bachelor's + 3 years, or Master's + 1 year" -> years needed with a master's
+MASTERS_YEARS_RE = re.compile(
+    rf"(?:master'?s|advanced degree|graduate degree)[^.;]{{0,60}}?(?:with|and|plus|\+)\s*{NUM}\+?\s*(?:or more\s+)?years?",
+    re.I)
+# "2 years of experience or a Master's degree" -> a master's replaces the experience
+MASTERS_INSTEAD_RE = re.compile(
+    r"years?[^.;]{0,50}\bor\b[^.;]{0,25}(?:master'?s|advanced degree|graduate degree)", re.I)
+
+
+def masters_valued(text):
+    """True when the posting asks for, prefers, or credits a master's degree."""
+    return bool(MASTERS_RE.search(text))
+
+
+def years_with_masters(text, years):
+    """Experience needed once a master's is counted."""
+    m = MASTERS_YEARS_RE.search(text)
+    if m:
+        n = m.group(1).lower()
+        n = int(n) if n.isdigit() else WORDS.get(n)
+        if n is not None:
+            return n if years is None else min(n, years)
+    if MASTERS_INSTEAD_RE.search(text):
+        return 0
+    return years
+
+
+NOT_FULL_TIME_TITLE = re.compile(
+    r"\bintern(ship)?\b|co-?op\b|part[- ]time|temporary|\btemp\b|seasonal|"
+    r"\bcontract(or)?\b|apprentice|fellowship|\d+[- ]month", re.I)
+NOT_FULL_TIME_TEXT = re.compile(
+    r"this is a (?:part[- ]time|temporary|contract)|part[- ]time (?:role|position)|"
+    r"(?:contract|temporary) (?:role|position|assignment)|\d+[- ]month contract|"
+    r"duration:\s*\d+\s*months?", re.I)
+
+
+def is_full_time(job):
+    if job.get("contract_time") == "part_time" or job.get("contract_type") == "contract":
+        return False
+    if NOT_FULL_TIME_TITLE.search(job["title"]):
+        return False
+    return not NOT_FULL_TIME_TEXT.search(job["description"])
+
+
 # ---------------------------------------------------------------- scoring
 
 def score_job(job):
@@ -128,20 +182,30 @@ def score_job(job):
     matched = [s for s, pats in p["skills"].items() if matches_any(text, pats)]
     score = min(len(matched) * 8, 48)
 
-    if matches_any(title, p["early_career"]) or matches_any(text, p["early_career"]):
-        score += 25
+    # Roles where a master's gives you an edge over bachelor's-only grads
+    if job["masters_valued"]:
+        score += 15
+    if matches_any(title, p["masters_titles"]):
+        score += 8
+    # New-grad programs: big applicant pools of fresh bachelor's grads
+    if job["new_grad_program"]:
+        score -= 10
     if matches_any(title, p["too_senior"]):
         score -= 35
-    years = job["years_required"]
+    years = job["effective_years"]
     if years is not None:
-        if years <= 2:
-            score += 10
-        elif years >= 3:
+        if years == 0:
+            score += 20     # your degree alone qualifies you
+        elif years == 1:
+            score += 8      # a stretch: internships may or may not count
+        elif years == 2:
+            score -= 5
+        else:
             score -= 30
     if job["phd_required"]:
         score -= 30
     if matches_any(text, p["degree"]):
-        score += 10
+        score += 5
     if job["target_company"]:
         score += 10
     if job["la_area"]:
@@ -170,10 +234,13 @@ def fetch_adzuna():
     }
     searches = [{"what_phrase": q} for q in CONFIG["adzuna_queries"]]
     # The same searches again, focused on the LA area
-    searches += [{"what_phrase": q, "where": "Los Angeles", "distance": 60}
+    searches += [{"what_phrase": q, "where": "Los Angeles", "distance": 50}
+                 for q in CONFIG["adzuna_queries"]]
+    # And around Thousand Oaks (covers Moorpark, Simi Valley, Westlake, Camarillo)
+    searches += [{"what_phrase": q, "where": "Thousand Oaks", "distance": 30}
                  for q in CONFIG["adzuna_queries"]]
     # Extra searches aimed at each target company
-    for company in CONFIG["target_company_searches"]:
+    for company in CONFIG["target_company_searches"] + CONFIG["local_company_searches"]:
         searches.append({"what_and": company,
                          "what_or": "analyst analytics scientist project"})
 
@@ -204,10 +271,12 @@ def fetch_adzuna():
                     "salary_max": j.get("salary_max"),
                     "source": "Adzuna",
                     "remote": False,
+                    "contract_time": j.get("contract_time"),
+                    "contract_type": j.get("contract_type"),
                 })
+            time.sleep(2.5)  # Adzuna allows about 25 requests a minute
             if len(results) < 50:
                 break
-            time.sleep(1)  # stay well under Adzuna's rate limits
     return jobs
 
 
@@ -308,6 +377,8 @@ def main():
             continue
         if matches_any(job["title"], CONFIG["exclude_titles"]):
             continue
+        if not is_full_time(job):
+            continue
         # Same title + company from two sources counts as one posting
         key = (job["title"].lower(), job["company"].lower())
         if key in seen_keys:
@@ -317,13 +388,17 @@ def main():
         job["role"] = family
         job["la_area"] = bool(LA_PATTERN.search(job["location"]))
         job["years_required"] = years_required(job["description"])
+        job["masters_valued"] = masters_valued(job["description"])
+        job["effective_years"] = years_with_masters(job["description"], job["years_required"])
+        job["new_grad_program"] = matches_any(
+            f"{job['title']} {job['description'][:400]}", CONFIG["profile"]["new_grad"])
         job["phd_required"] = phd_required(job["description"])
         job["senior_title"] = matches_any(job["title"], CONFIG["profile"]["too_senior"])
         job["fits_experience"] = (
             not job["senior_title"]
             and not job["phd_required"]
-            and (job["years_required"] is None
-                 or job["years_required"] <= CONFIG["max_years_experience"])
+            and (job["effective_years"] is None
+                 or job["effective_years"] <= CONFIG["max_years_experience"])
         )
         job["target_company"] = is_target_company(job["company"])
         job["score"], job["matched_skills"] = score_job(job)
@@ -342,7 +417,8 @@ def main():
     OUT_FILE.write_text(json.dumps({"updated": NOW.isoformat(), "jobs": jobs}, indent=1))
     new_today = sum(j["first_seen"] == today for j in jobs)
     fits = sum(j.get("fits_experience", False) for j in jobs)
-    print(f"{fits} jobs fit your experience level (0-{CONFIG['max_years_experience']} years, no PhD)")
+    masters = sum(j.get("masters_valued", False) for j in jobs)
+    print(f"{fits} jobs fit your level, {masters} value a master's")
     companies = len({j["company"] for j in jobs})
     print(f"Saved {len(jobs)} jobs from {companies} companies ({new_today} new today)")
 
